@@ -1,0 +1,57 @@
+{% load static %}
+<div class="top-menu-bottom932">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle
+                        navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+                        class="icon-bar"></span> </button>
+                <a class="navbar-brand" href="#"><img src="{% static 'image/logo1.png' %}" width=120 height= 80  alt="Logo" ></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav"> </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'forum' %}">To Student's Forum</a></li>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false">Start Quiz <span class="caret"></span></a>
+                        <ul class="dropdown-menu animated zoomIn">
+                            <li><a href="category.html">Head to Head</a></li>
+                            <li><a href="category.html">Survival Streak</a></li>
+                            <li><a href="category.html">Normal Test</a></li>
+                            <!-- <li><a href="category.html">Javascript</a></li>
+                <li><a href="category.html">Bootstrap</a></li> -->
+                        </ul>
+                    </li>
+
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false">Notes Section <span class="caret"></span></a>
+                        <ul class="dropdown-menu animated zoomIn">
+                            <li><a href="blog.html">Notes App </a></li>
+                            <li><a href="blog.html">Downloaded Notes </a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false">Leaderboards <span class="caret"></span></a>
+                        <ul class="dropdown-menu animated zoomIn">
+                            <li><a href="logIn.html">Login</a></li>
+                            <li><a href="contact_us.html"> Contact Us</a></li>
+                            <li><a href="ask_question.html"> Ask Question </a></li>
+                            <li><a href="post-deatils.html"> Post-Details </a></li>
+                            <li><a href="user.html">All User</a></li>
+                            <li><a href="user_question.html"> User Question </a></li>
+                            <li><a href="category.html"> Category </a></li>
+                            <li><a href="#"> 404 </a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact_us.html">Contact us</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</div>

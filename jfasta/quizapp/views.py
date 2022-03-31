@@ -23,6 +23,44 @@ from quizapp import serializers
 def index(request):
     return render(request,'index.html')
 
+def forum(request):
+    return render(request, 'forum.html')
+
+def dashboard(request):
+    return render(request, 'dashboard.html')
+
+def login(request):
+    return render(request, 'login.html')
+
+def register(request):
+    return render(request, 'register.html')
+
+def makepost(request):
+    return render(request, 'makepost.html')
+
+def feedback(request):
+    return render(request, 'feedback.html')
+
+def selectquiz(request):
+    return render(request, 'selectquiz.html')
+
+def h2h(request):
+    return render(request, 'h2h.html')
+
+def survival(request):
+    return render(request, 'survival.html')
+
+def normal(request):
+    return render(request, 'normal.html')
+
+def notes(request):
+    return render(request, 'notes.html')
+
+def contribute(request):
+    return render(request, 'contribute')
+
+
+
 
 # API views
 

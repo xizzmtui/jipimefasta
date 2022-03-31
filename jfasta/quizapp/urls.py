@@ -14,4 +14,20 @@ urlpatterns = [
     path('getContentSuggested/', views.ContentSuggestedList.as_view(), name='CSugg'),
     path('getPost/', views.PostList.as_view(), name='PostList'),
     path('getReply/', views.ReplyList.as_view(), name='ReplyList'),
+
+#  routes to other web functionalities
+    path('forum/', views.forum, name='forum'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('login/', views.login, name='login'),
+    path('register/', views.register, name='register'),
+    path('makepost/', views.makepost, name='makepost'),
+    path('feedback/', views.feedback, name='feedback'),
+    path('selectquiz/', views.selectquiz, name='selectquiz'),
+    path('h2h/', views.h2h, name='h2h'),
+    path('survival/', views.survival, name='survival'),
+    path('normal/', views.normal, name='normal'),
+    path('notes/', views.notes, name='notes'),
+    path('contribute/', views.contribute, name='contribute'),
+
+    
 ]
