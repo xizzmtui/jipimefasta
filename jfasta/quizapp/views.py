@@ -1,3 +1,4 @@
+from http.client import HTTPResponse
 from django.shortcuts import render
 
 # Create your views here.
@@ -15,11 +16,12 @@ from rest_framework.parsers import JSONParser
 from rest_framework import status
 from .models import User, Question, Question_Options, Quiz, Quiz_Question, Feedback, ContentSuggested, Post,  Reply
 from .serializers import UserSerializer, QuizSerializer, Quiz_QuestionSerializer, QuestionSerializer, Question_OptionsSerializer,FeedbackSerializer, ContentSuggestedSerializer, PostSerializer, ReplySerializer
-from quiz_app import serializers
+from quizapp import serializers
 
 
 # Create your views here.
-
+def index(request):
+    return render(request,'index.html')
 
 
 # API views

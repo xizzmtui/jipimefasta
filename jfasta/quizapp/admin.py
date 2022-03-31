@@ -1,5 +1,5 @@
 from django.contrib import admin
-from quiz_app.models import ContentSuggested, Feedback, Post, Question, Question_Options, Quiz, Quiz_Question, Reply, User
+from quizapp.models import ContentSuggested, Feedback, Post, Question, Question_Options, Quiz, Quiz_Question, Reply, User
 
 # # Register your models here.
 admin.site.register(User)
