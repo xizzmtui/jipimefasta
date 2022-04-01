@@ -28,6 +28,7 @@ input[type="email"],
 input[type="password"],
 input[type="con-password"]
 
+
 {
   padding: 10px 20px;
   border: 1px solid #999;
@@ -91,12 +92,15 @@ label:first-child {
 }
 
 .modal-wrap {
+  min-height: 100vh;
   max-width: 600px;
   margin: 50px auto;
   -webkit-transition: -webkit-transform 300ms ease-in-out;
   transition: -webkit-transform 300ms ease-in-out;
   transition: transform 300ms ease-in-out;
   transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+  height: max-content;
+      
 }
 
 .modal-header {
@@ -172,3 +176,4 @@ label:first-child {
   cursor: pointer;
     margin-bottom: 20px;
 }
+

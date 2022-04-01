@@ -1,6 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <h1>Login</h1>
-
+    <div class="modal-wrap">
+    
+        <div class="modal-bodies">
+            <div class="modal-body modal-body-step-1 is-showing">
+                <div class="title">Log In</div>
+                <div class="description">Hello there, Log In</div>
+                <form>
+                    <input type="text" placeholder="Name" />
+                    <input type="email" placeholder="Email" />
+                    <div class="text-center">
+                        <div class="button">LOG IN</div>
+                        <a href="{% url 'register' %}">
+                            <div class="button">Create an account</div>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -59,6 +59,9 @@ def notes(request):
 def contribute(request):
     return render(request, 'contribute')
 
+def aboutus(request):
+    return render(request, 'aboutus.html')
+
 
 
 

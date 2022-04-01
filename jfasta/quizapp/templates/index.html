@@ -2,7 +2,31 @@
 {% load static %}
 {% block content %}
 
-    <h1>Welcome to Jipime Fasta API platform
+<!--======= welcome section on top background=====-->
+<section class="welcome-part-one" style="min-height: 71vh;">
+    <div class="container">
+        <div class="welcome-demop102 text-center">
+            <h2>Welcome to Jipime Fasta, Environment for Tanzania's Secondary Students to Excel online </h2>
+            <p>Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis.
+                Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque. Pellentesque
+                <br> habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur vitae
+                velit in
+                neque dictum blandit
+            </p>
+            <div class="button0239-item">
+                <a href="{% url 'aboutus' %}">
+                    <button type="button" class="aboutus022">About Us</button>
+                </a>
+                <a href="{% url 'login' %}">
+                    <button type="button" class="join92">Join Now</button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--======= end welcome section on top background=====-->
+    <!-- <h1>Welcome to Jipime Fasta API platform
         ... The routes are :
         <hr>
         <ul>
@@ -16,6 +40,6 @@
             <li>getQuiz</li>
             <li>getQuestion</li>
         </ul>
-    </h1>
+    </h1> -->
 {% endblock %}
 </html>

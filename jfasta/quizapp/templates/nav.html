@@ -19,9 +19,9 @@
                     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                             aria-haspopup="true" aria-expanded="false">Start Quiz <span class="caret"></span></a>
                         <ul class="dropdown-menu animated zoomIn">
-                            <li><a href="category.html">Head to Head</a></li>
-                            <li><a href="category.html">Survival Streak</a></li>
-                            <li><a href="category.html">Normal Test</a></li>
+                            <li><a href="{% url 'h2h'%}">Head to Head</a></li>
+                            <li><a href="{% url 'survival' %}">Survival Streak</a></li>
+                            <li><a href="{% url 'normal' %}">Normal Test</a></li>
                             <!-- <li><a href="category.html">Javascript</a></li>
                 <li><a href="category.html">Bootstrap</a></li> -->
                         </ul>
@@ -30,24 +30,20 @@
                     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                             aria-haspopup="true" aria-expanded="false">Notes Section <span class="caret"></span></a>
                         <ul class="dropdown-menu animated zoomIn">
-                            <li><a href="blog.html">Notes App </a></li>
-                            <li><a href="blog.html">Downloaded Notes </a></li>
+                            <li><a href="{% url 'notes' %}">Notes App </a></li>
+                            <li><a href="{% url 'notes' %}">Downloaded Notes </a></li>
                         </ul>
                     </li>
                     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                             aria-haspopup="true" aria-expanded="false">Leaderboards <span class="caret"></span></a>
                         <ul class="dropdown-menu animated zoomIn">
-                            <li><a href="logIn.html">Login</a></li>
-                            <li><a href="contact_us.html"> Contact Us</a></li>
-                            <li><a href="ask_question.html"> Ask Question </a></li>
-                            <li><a href="post-deatils.html"> Post-Details </a></li>
-                            <li><a href="user.html">All User</a></li>
-                            <li><a href="user_question.html"> User Question </a></li>
-                            <li><a href="category.html"> Category </a></li>
-                            <li><a href="#"> 404 </a></li>
+                            <li><a href="{% url 'login'%}">Login</a></li>
+                            <li><a href="{% url 'feedback' %}"> Contact Us</a></li>
+                            <li><a href="{% url 'forum' %}">To Student Forum </a></li>
+                            <li><a href="{% url 'makepost' %}"> Make a New Post </a></li>
                         </ul>
                     </li>
-                    <li><a href="contact_us.html">Contact us</a></li>
+                    <li><a href="{% url 'feedback' %}">Contact us</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

@@ -1286,6 +1286,7 @@ h5:hover {
 .footer-part {
     background-color: #000;
     padding: 30px;
+    margin-top: auto;
 }
 
 .info-part-one320 {
@@ -1852,7 +1853,7 @@ h5:hover {
 
 .comments-container h1 {
     font-size: 36px;
-    color: #283035;
+    color: #000;
     font-weight: 400;
 }
 
