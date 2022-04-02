@@ -15,13 +15,18 @@
                 <ul class="nav navbar-nav"> </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{% url 'index' %}">Home</a></li>
-                    <li><a href="{% url 'forum' %}">To Student's Forum</a></li>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">To Student's Forum<span class="caret"></span></a>
+                    <ul class="dropdown-menu animated zoomIn">
+                        <li><a href="{% url 'forum' %}"> Student Forum </a></li>
+                        <li><a href="{% url 'makepost' %}"> Make a New Post </a></li>
+                    </ul></li>
                     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                             aria-haspopup="true" aria-expanded="false">Start Quiz <span class="caret"></span></a>
                         <ul class="dropdown-menu animated zoomIn">
                             <li><a href="{% url 'h2h'%}">Head to Head</a></li>
                             <li><a href="{% url 'survival' %}">Survival Streak</a></li>
-                            <li><a href="{% url 'normal' %}">Normal Test</a></li>
+                            <li><a href="{% url 'normal' %}">Timed Test</a></li>
                             <!-- <li><a href="category.html">Javascript</a></li>
                 <li><a href="category.html">Bootstrap</a></li> -->
                         </ul>
@@ -34,14 +39,7 @@
                             <li><a href="{% url 'notes' %}">Downloaded Notes </a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                            aria-haspopup="true" aria-expanded="false">Leaderboards <span class="caret"></span></a>
-                        <ul class="dropdown-menu animated zoomIn">
-                            <li><a href="{% url 'login'%}">Login</a></li>
-                            <li><a href="{% url 'feedback' %}"> Contact Us</a></li>
-                            <li><a href="{% url 'forum' %}">To Student Forum </a></li>
-                            <li><a href="{% url 'makepost' %}"> Make a New Post </a></li>
-                        </ul>
+                    <li><a href="{% url 'leaderboard' %}">Leaderboards </a>
                     </li>
                     <li><a href="{% url 'feedback' %}">Contact us</a></li>
                 </ul>

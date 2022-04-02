@@ -62,6 +62,9 @@ def contribute(request):
 def aboutus(request):
     return render(request, 'aboutus.html')
 
+def leaderboard(request):
+    return render(request, 'leaderboard.html')
+
 
 
 

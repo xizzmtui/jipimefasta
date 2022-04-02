@@ -29,6 +29,7 @@ urlpatterns = [
     path('notes/', views.notes, name='notes'),
     path('contribute/', views.contribute, name='contribute'),
     path('aboutus/', views.aboutus, name='aboutus'),
+    path('leaderboard/', views.leaderboard, name='leaderboard'),
 
     
 ]
