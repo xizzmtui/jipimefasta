@@ -14,46 +14,23 @@
                 <input type="con-password" placeholder="Confirm Password*" />
                     
                
-                <select name="
-                    Grade" id="grade">
-                        <option value="1">
-                            Form 1
-                        </option>
-                        <option value="2">
-                            Form 2
-                        </option>
-                        <option value="3">
-                            Form 3
-                        </option>
-                        <option value="4">
-                            Form 4
-                        </option>
-                        <option value="5">
-                            Form 5
-                        </option>
-                        <option value="6">
-                            Form 6
-                        </option>
-                    </select>
-                <input type="text" name="combination" id="combination" placeholder="Grade example 'PCM' or 'Science for O-Level' ">
-                <input type="text" name="school" id="school" placeholder="Your School Name">
-
-
-
-                <div class="col-md-4">
-                    <div class="row text-center sign-with">
-                        <div class="col-md-12">
-                            <h3>
-                                Sign in with</h3>
-                        </div>
-                        <div class="col-md-12 sign-in28912">
-                            <div class="btn-group btn-group-justified">
-                                <a href="#" class="btn btn-primary btn-primary3838">Facebook</a>
-                                <a href="#" class="btn btn-danger btn-danger37883"> Google</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="categori49">
+                    <!-- <span class="form-description43305">Grade </span> -->
+                    <label>
+                        <input list="browsers" name="myBrowser" class="list-category53" /></label>
+                    <datalist id="browsers">
+                        <option value="Form 1">
+                        <option value="Form 2">
+                        <option value="Form 3">
+                        <option value="Form 4">
+                        <option value="Form 5">
+                        <option value="Form 6">
+                        
+                    </datalist>
                 </div>
+                <input type="text" name="combination" id="combination" placeholder="Combination example 'PCM' or 'Science for O-Level' ">
+                <input type="text" name="school" id="school" placeholder="Your School Name">
+                
                 <div class="text-center">
                     <div class="button">Sign Up</div>
 
@@ -64,5 +41,8 @@
 
     </div>
 </div>
-
+<br/>
+<br/>
+<br>
+<br>
 {% endblock %}
