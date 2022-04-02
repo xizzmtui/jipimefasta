@@ -497,7 +497,7 @@ h1 {
 .dropdown-submenu:focus>a {
     color: #fff;
     text-decoration: none;
-    background-color: #FF7361;
+    background-color: #fc2307;
     background-repeat: repeat-x;
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
 }

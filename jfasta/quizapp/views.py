@@ -38,6 +38,9 @@ def register(request):
 def makepost(request):
     return render(request, 'makepost.html')
 
+def viewpost(request):
+    return render(request, 'viewpost.html')
+
 def feedback(request):
     return render(request, 'feedback.html')
 

@@ -22,6 +22,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="{% static 'css/loginstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
 <body>
@@ -55,25 +57,25 @@
                 <div class="col-md-3">
                     <div class="info-part-two320">
                         <h4>Quick Links</h4>
-                        <a href="#">
+                        <a href="{% url 'index'%}">
                             <p>-Home</p>
                         </a>
-                        <a href="#">
+                        <a href="{% url 'selectquiz' %}">
                             <p>-Quick Quiz</p>
                         </a>
                         <a href="{% url 'forum' %}">
                             <p>-Students Forum</p>
                         </a>
-                        <a href="#">
+                        <a href="{% url 'forum' %}">
                             <p>-Personal Posts</p>
                         </a>
                         <a href="#">
                             <p>-Edit Profile</p>
                         </a>
-                        <a href="#">
+                        <a href="{% url 'leaderboard' %}">
                             <p>-Check Leaderboards</p>
                         </a>
-                        <a href="#">
+                        <a href="{% url 'feedback'%}">
                             <p>-Contact Us</p>
                         </a>
                         
@@ -156,6 +158,8 @@
             $("#txtEditor").Editor();
         });
     </script>
+    <script src="{% static 'js/questions.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
     
     </body>
 </html>
