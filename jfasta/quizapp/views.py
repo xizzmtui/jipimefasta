@@ -45,7 +45,7 @@ def register(request):
 			user = form.save()
 			login(request)
 			messages.success(request, "Registration successful." )
-			return redirect("index")
+			return redirect("dashboard")
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewUserForm()
 	return render (request=request, template_name="register.html", context={"register_form":form})
@@ -60,7 +60,7 @@ def login(request):
 			if user is not None:
 				login(request)
 				messages.info(request, f"You are now logged in as {username}.")
-				return redirect("index")
+				return redirect("dashboard")
 			else:
 				messages.error(request,"Invalid username or password.")
 		else:
