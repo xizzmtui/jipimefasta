@@ -60,6 +60,8 @@ class Quiz_Question(models.Model):
 
 
 class Post(models.Model):
+    title = models.TextField(default=
+    'New Post')
     content = models.TextField()
     img = models.ImageField(blank=True, null=True)
     usr = models.ForeignKey(

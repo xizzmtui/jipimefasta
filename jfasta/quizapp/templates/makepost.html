@@ -17,15 +17,8 @@
                     <div class="ask-question-input-part032">
                         <h4>Your Post</h4>
                         <hr>
-                        <form>
-                            <!-- <div class="username-part940">
-                                <span class="form-description43">User name* </span><input type="text" name="fname"
-                                    class="username029" placeholder="Enter your Name">
-                            </div>
-                            <div class="email-part320">
-                                <span class="form-description442">E-Mail* </span><input type="text" name="fname"
-                                    class="email30" placeholder="Enter Your Email">
-                            </div> -->
+                        <form method="post" target="#">
+                            
                             <div class="question-title39">
                                 <span class="form-description433">Post-Title* </span><input type="text" name="fname"
                                     class="question-ttile32" placeholder="Whats On Your Mind?">
@@ -60,11 +53,11 @@
                                     <textarea id="txtEditor"></textarea>
                                 </div>
                             </div>
-    
+                            <div class="publish-button2389">
+                                <button type="button" class="publis1291">Publish your Post</button>
+                            </div>
                         </form>
-                        <div class="publish-button2389">
-                            <button type="button" class="publis1291">Publish your Post</button>
-                        </div>
+                        
     
                     </div>
     
@@ -77,16 +70,16 @@
                     <div class="status-part3821">
                         <h4>stats</h4>
     
-                        <a href="#"><i class="fa fa-question-circle" aria-hidden="true"> Question(20)</i></a>
-                        <i class="fa fa-comment" aria-hidden="true"> Answers(50)</i>
+                        <a href="{% url 'forum' %}"><i class="fa fa-question-circle" aria-hidden="true"> Your Posts</i></a>
+                        <i class="fa fa-comment" aria-hidden="true"> Your Replies</i>
                     </div>
                     <div class="categori-part329">
                         <h4>Category</h4>
                         <ul>
-                            <li><a href="#">web developer</a></li>
-                            <li><a href="#">Andriod developer</a></li>
-                            <li><a href="#">grapics developer</a></li>
-                            <li><a href="#">web developer</a></li>
+                            <li><a href="#">Kiswahili</a></li>
+                            <li><a href="#">General</a></li>
+                            <li><a href="#">Mathematics Questions</a></li>
+                            <li><a href="#">News</a></li>
     
                         </ul>
                     </div>
@@ -94,15 +87,15 @@
                     <div class="tags-part2398">
                         <h4>Tags</h4>
                         <ul>
-                            <li><a href="#">analytics</a></li>
+                            <li><a href="#">Kiswahili</a></li>
                             <li><a href="#">Computer</a></li>
-                            <li><a href="#">Developer</a></li>
-                            <li><a href="#">Google</a></li>
-                            <li><a href="#">Interview</a></li>
-                            <li><a href="#">Programmer</a></li>
-                            <li><a href="#">Salary</a></li>
+                            <li><a href="#">Mathematics</a></li>
+                            <li><a href="#">English</a></li>
+                            <li><a href="#">A-Level</a></li>
+                            <li><a href="#">O-Level</a></li>
+                            <li><a href="#">Necta</a></li>
                             <li><a href="#">University</a></li>
-                            <li><a href="#">Employee</a></li>
+                            <li><a href="#">Tanzania One</a></li>
     
                         </ul>
     
