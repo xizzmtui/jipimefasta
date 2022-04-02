@@ -1,23 +1,18 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends "base.html" %}
+
 {% block content %}
-    <div class="modal-wrap">
-    
-        <div class="modal-bodies">
-            <div class="modal-body modal-body-step-1 is-showing">
-                <div class="title">Log In</div>
-                <div class="description">Hello there, Log In</div>
-                <form>
-                    <input type="text" placeholder="Userame" required />
-                    <input type="email" placeholder="Password" required />
-                    <div class="text-center">
-                        <div class="button">LOG IN</div>
-                        <a href="{% url 'register' %}">
-                            <div class="button">Create an account</div>
-                        </a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+
+{% load crispy_forms_tags %}
+
+<!--Login-->
+<div class="container py-5">
+    <h1>Login</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ login_form|crispy }}
+        <button class="btn btn-primary" type="submit">Login</button>
+    </form>
+    <p class="text-center">Don't have an account? <a href="/register">Create an account</a>.</p>
+</div>
+
 {% endblock %}

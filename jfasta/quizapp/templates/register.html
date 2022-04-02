@@ -1,48 +1,18 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends "base.html" %}
+
 {% block content %}
-<div class="modal-wrap">
 
-    <div class="modal-bodies">
-        <div class="modal-body modal-body-step-1 is-showing">
-            <div class="title">Sign Up</div>
-            <div class="description">Hi there, Register Form</div>
-            <form>
-                <input type="text" placeholder="Username*" />
-                <input type="email" placeholder="E-Mail*" />
-                <input type="password" placeholder="Password*" />
-                <input type="con-password" placeholder="Confirm Password*" />
-                    
-               
-                <div class="categori49">
-                    <!-- <span class="form-description43305">Grade </span> -->
-                    <label>
-                        <input list="browsers" name="myBrowser" class="list-category53" /></label>
-                    <datalist id="browsers">
-                        <option value="Form 1">
-                        <option value="Form 2">
-                        <option value="Form 3">
-                        <option value="Form 4">
-                        <option value="Form 5">
-                        <option value="Form 6">
-                        
-                    </datalist>
-                </div>
-                <input type="text" name="combination" id="combination" placeholder="Combination example 'PCM' or 'Science for O-Level' ">
-                <input type="text" name="school" id="school" placeholder="Your School Name">
-                
-                <div class="text-center">
-                    <div class="button">Sign Up</div>
+{% load crispy_forms_tags %}
 
-                </div>
-            </form>
-        </div>
-
-
-    </div>
+<!--Register-->
+<div class="container py-5">
+    <h1>Register</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ register_form|crispy }}
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+    <p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
 </div>
-<br/>
-<br/>
-<br>
-<br>
+
 {% endblock %}
