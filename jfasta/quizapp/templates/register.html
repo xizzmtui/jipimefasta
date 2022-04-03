@@ -1,68 +1,18 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends "base.html" %}
+
 {% block content %}
-<div class="modal-wrap">
 
-    <div class="modal-bodies">
-        <div class="modal-body modal-body-step-1 is-showing">
-            <div class="title">Sign Up</div>
-            <div class="description">Hi there, Register Form</div>
-            <form>
-                <input type="text" placeholder="Username*" />
-                <input type="email" placeholder="E-Mail*" />
-                <input type="password" placeholder="Password*" />
-                <input type="con-password" placeholder="Confirm Password*" />
-                    
-               
-                <select name="
-                    Grade" id="grade">
-                        <option value="1">
-                            Form 1
-                        </option>
-                        <option value="2">
-                            Form 2
-                        </option>
-                        <option value="3">
-                            Form 3
-                        </option>
-                        <option value="4">
-                            Form 4
-                        </option>
-                        <option value="5">
-                            Form 5
-                        </option>
-                        <option value="6">
-                            Form 6
-                        </option>
-                    </select>
-                <input type="text" name="combination" id="combination" placeholder="Grade example 'PCM' or 'Science for O-Level' ">
-                <input type="text" name="school" id="school" placeholder="Your School Name">
+{% load crispy_forms_tags %}
 
-
-
-                <div class="col-md-4">
-                    <div class="row text-center sign-with">
-                        <div class="col-md-12">
-                            <h3>
-                                Sign in with</h3>
-                        </div>
-                        <div class="col-md-12 sign-in28912">
-                            <div class="btn-group btn-group-justified">
-                                <a href="#" class="btn btn-primary btn-primary3838">Facebook</a>
-                                <a href="#" class="btn btn-danger btn-danger37883"> Google</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <div class="button">Sign Up</div>
-
-                </div>
-            </form>
-        </div>
-
-
-    </div>
+<!--Register-->
+<div class="container py-5">
+    <h1>Register</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ register_form|crispy }}
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+    <p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
 </div>
 
 {% endblock %}

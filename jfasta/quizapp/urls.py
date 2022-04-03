@@ -2,6 +2,9 @@ from  django.urls import path
 from . import views
 from rest_framework.urlpatterns import format_suffix_patterns
 from .  import views
+import quizapp
+
+
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -31,6 +34,7 @@ urlpatterns = [
     path('contribute/', views.contribute, name='contribute'),
     path('aboutus/', views.aboutus, name='aboutus'),
     path('leaderboard/', views.leaderboard, name='leaderboard'),
+    path('logout/', views.logout, name='logout'),
 
     
 ]
