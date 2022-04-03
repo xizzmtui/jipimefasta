@@ -181,7 +181,7 @@ hr {
 
 
 .navbar-default {
-    background-color: #000;
+    background-color: rgb(13, 3, 22);
     border-color: #000;
     padding: 20px;
 }
@@ -194,11 +194,12 @@ hr {
 
 .navbar-default .navbar-nav > li > a {
     color: #fff;
-    padding: 8px 25px 8px 25px;
+     padding: 2px 25px 8px 25px;
     margin:5px 0px;
-    border-radius: 3px;
+    border-radius: 3px; 
     font-weight: bold;
     font-family: sans-serif;
+    align-items: flex-end;
 }
 .navbar-default .navbar-nav > li{
    margin: 0px 5px;
