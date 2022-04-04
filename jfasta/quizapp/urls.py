@@ -21,7 +21,7 @@ urlpatterns = [
 #  routes to other web functionalities
     path('forum/', views.forum, name='forum'),
     path('dashboard/', views.dashboard, name='dashboard'),
-    path('login/', views.login, name='login'),
+    path('login/', views.login_django, name='login'),
     path('register/', views.register, name='register'),
     path('makepost/', views.makepost, name='makepost'),
     path('viewpost/', views.viewpost, name='viewpost'),

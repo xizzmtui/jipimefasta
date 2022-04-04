@@ -22,7 +22,6 @@ from quizapp import serializers
 import sqlite3
 from .forms import NewUserForm
 from django.contrib.auth import login, authenticate 
-from django.contrib.auth import login as auth_login
 from django.contrib.auth.forms import AuthenticationForm
 
 
@@ -43,14 +42,14 @@ def register(request):
 		form = NewUserForm(request.POST)
 		if form.is_valid():
 			user = form.save()
-			login(request)
+			login(request, user)
 			messages.success(request, "Registration successful." )
 			return redirect("dashboard")
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewUserForm()
 	return render (request=request, template_name="register.html", context={"register_form":form})
 
-def login(request):
+def login_django(request):
 	if request.method == "POST":
 		form = AuthenticationForm(request, data=request.POST)
 		if form.is_valid():
@@ -58,7 +57,7 @@ def login(request):
 			password = form.cleaned_data.get('password')
 			user = authenticate(username=username, password=password)
 			if user is not None:
-				login(request)
+				login(request, user)
 				messages.info(request, f"You are now logged in as {username}.")
 				return redirect("dashboard")
 			else:
