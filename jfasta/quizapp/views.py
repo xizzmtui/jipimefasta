@@ -20,9 +20,10 @@ from .models import User, Question, Question_Options, Quiz, Quiz_Question, Feedb
 from .serializers import UserSerializer, QuizSerializer, Quiz_QuestionSerializer, QuestionSerializer, Question_OptionsSerializer,FeedbackSerializer, ContentSuggestedSerializer, PostSerializer, ReplySerializer
 from quizapp import serializers
 import sqlite3
-from .forms import NewUserForm
+from .forms import NewUserForm, ProfileUpdateForm, UserUpdateForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -30,12 +31,34 @@ from django.contrib.auth.forms import AuthenticationForm
 # Create your views here.
 def index(request):
     return render(request,'index.html')
-
+    
+@login_required
 def forum(request):
     return render(request, 'forum.html')
 
+@login_required
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST,
+                                   request.FILES,
+                                   instance=request.user.profile) 
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('dashboard') # Redirect back to profile page
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+
+    return render(request, 'dashboard.html', context)
 
 def register(request):
 	if request.method == "POST":
@@ -48,6 +71,7 @@ def register(request):
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewUserForm()
 	return render (request=request, template_name="register.html", context={"register_form":form})
+
 
 def login_django(request):
 	if request.method == "POST":
@@ -74,37 +98,57 @@ def logout_django(request):
 	messages.info(request, "You have successfully logged out.") 
 	return redirect("index")
 
-
+@login_required
 def makepost(request):
     return render(request, 'makepost.html')
 
+@login_required
 def viewpost(request):
     return render(request, 'viewpost.html')
 
+@login_required
+def posttest(request):
+    return render(request, 'posttest.html')
+
+@login_required
 def feedback(request):
     return render(request, 'feedback.html')
 
+@login_required
 def selectquiz(request):
     return render(request, 'selectquiz.html')
 
+
+
+@login_required
 def h2h(request):
     return render(request, 'h2h.html')
 
+
+@login_required
 def survival(request):
     return render(request, 'survival.html')
 
+
+@login_required
 def normal(request):
     return render(request, 'normal.html')
 
+
+@login_required
 def notes(request):
     return render(request, 'notes.html')
 
+
+@login_required
 def contribute(request):
     return render(request, 'contribute')
 
 def aboutus(request):
     return render(request, 'aboutus.html')
 
+
+@login_required
 def leaderboard(request):
     return render(request, 'leaderboard.html')
 
@@ -112,7 +156,6 @@ def leaderboard(request):
 
 
 # API views
-
 class UserList(APIView):
     def get(self, request):
         User1 = User.objects.all()

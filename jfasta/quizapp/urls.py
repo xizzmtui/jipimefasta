@@ -2,6 +2,8 @@ from  django.urls import path
 from . import views
 from rest_framework.urlpatterns import format_suffix_patterns
 from .  import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 
@@ -35,6 +37,7 @@ urlpatterns = [
     path('aboutus/', views.aboutus, name='aboutus'),
     path('leaderboard/', views.leaderboard, name='leaderboard'),
     path('logout/', views.logout_django, name='logout'),
+    path('posttest/', views.posttest, name='posttest')
 
     
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
