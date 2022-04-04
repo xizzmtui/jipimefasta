@@ -1,4 +1,11 @@
 {% load static %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 <div class="top-menu-bottom932">
     <nav class="navbar navbar-default">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -41,8 +48,18 @@
                     <li><a  href="{% url 'leaderboard' %}">Leaderboards </a>
                     </li>
                     <li><a href="{% url 'feedback' %}">Contact us</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    
+                    {% endif %}
                 </ul>
-            </div>
+           </div>
             <!-- /.navbar-collapse -->
     </nav>
 </div>

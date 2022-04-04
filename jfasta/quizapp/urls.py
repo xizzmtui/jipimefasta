@@ -34,7 +34,7 @@ urlpatterns = [
     path('contribute/', views.contribute, name='contribute'),
     path('aboutus/', views.aboutus, name='aboutus'),
     path('leaderboard/', views.leaderboard, name='leaderboard'),
-    path('logout/', views.logout, name='logout'),
+    path('logout/', views.logout_django, name='logout'),
 
     
 ]
