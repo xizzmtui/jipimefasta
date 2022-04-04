@@ -141,3 +141,14 @@ MESSAGE_TAGS = {
         messages.WARNING: 'alert-warning',
         messages.ERROR: 'alert-danger',
  }
+
+JAZZMIN_SETTINGS = {
+    "site_title": "JFasta Admin",
+    "site_header": "JFasta",
+    "site_brand": "JFasta",
+      # Logo to use for your site, must be present in static files, used for brand on top left
+    # "site_logo": "books/img/logo.png",
+
+    # # CSS classes that are applied to the logo above
+    # "site_logo_classes": "img-circle",
+}
