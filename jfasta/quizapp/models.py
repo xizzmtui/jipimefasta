@@ -1,24 +1,9 @@
 from asyncio.windows_events import NULL
 from datetime import datetime
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
-
-
-class User(models.Model):
-    firstname = models.CharField(null=True, max_length=30)
-    lastname = models.CharField(null=True, max_length=30)
-    username = models.CharField(max_length=30)
-    email = models.CharField(max_length=50)
-    password = models.CharField(max_length=100)
-    school = models.CharField(max_length=40)
-    level = models.IntegerField()
-    combination = models.CharField(max_length=3)
-    dob = models.DateField(null=True)
-
-    def __str__(self):
-        return self.username
-
 
 class Question(models.Model):
     description = models.TextField()

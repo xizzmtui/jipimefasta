@@ -2,7 +2,7 @@ from django.contrib import admin
 from quizapp.models import ContentSuggested, Feedback, Post, Question, Question_Options, Quiz, Quiz_Question, Reply, User
 
 # # Register your models here.
-admin.site.register(User)
+
 admin.site.register(Question)
 admin.site.register(Question_Options)
 admin.site.register(Post)
