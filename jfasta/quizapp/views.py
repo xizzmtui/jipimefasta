@@ -20,7 +20,7 @@ from .models import User, Question, Question_Options, Quiz, Quiz_Question, Feedb
 from .serializers import UserSerializer, QuizSerializer, Quiz_QuestionSerializer, QuestionSerializer, Question_OptionsSerializer,FeedbackSerializer, ContentSuggestedSerializer, PostSerializer, ReplySerializer
 from quizapp import serializers
 import sqlite3
-from .forms import NewUserForm, ProfileUpdateForm, UserUpdateForm
+from .forms import NewUserForm, UserUpdateForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
@@ -40,9 +40,7 @@ def forum(request):
 def dashboard(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
-        p_form = ProfileUpdateForm(request.POST,
-                                   request.FILES,
-                                   instance=request.user.profile) 
+        # p_form = ProfileUpdateForm(request.POST,request.FILES,instance=request.user.profile) 
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
@@ -51,11 +49,11 @@ def dashboard(request):
 
     else:
         u_form = UserUpdateForm(instance=request.user)
-        p_form = ProfileUpdateForm(instance=request.user.profile)
+        # p_form = ProfileUpdateForm(instance=request.user.profile)
 
     context = {
         'u_form': u_form,
-        'p_form': p_form
+        # 'p_form': p_form
     }
 
     return render(request, 'dashboard.html', context)

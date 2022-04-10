@@ -50,7 +50,7 @@ class UserUpdateForm(forms.ModelForm):
         
 
 # Create a ProfileUpdateForm to update image
-class ProfileUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = ['image']
+# class ProfileUpdateForm(forms.ModelForm):
+#     class Meta:
+#         model = Profile
+#         # fields = ['image']
