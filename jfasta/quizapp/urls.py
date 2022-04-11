@@ -1,15 +1,22 @@
-from  django.urls import path
+from  django.urls import path, include
 from . import views
 from rest_framework.urlpatterns import format_suffix_patterns
 from .  import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 
 
 
 
 urlpatterns = [
     path('', views.index, name='index'),
+    # path('accounts/', include('django.contrib.auth.urls')), #password reset views
+    path('password_reset', views.password_reset_request, name='password_reset'),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='password/password_reset_done.html'), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="password/password_reset_confirm.html"), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='password/password_reset_complete.html'), name='password_reset_complete'), 
+
     path('getUser/',views.UserList.as_view(), name='User' ),
     path('getQuestion/', views.QuestionList.as_view(), name='Question'),
     path('getQuestion_Options/', views.Question_OptionsList.as_view(), name='QO'),
@@ -37,7 +44,8 @@ urlpatterns = [
     path('aboutus/', views.aboutus, name='aboutus'),
     path('leaderboard/', views.leaderboard, name='leaderboard'),
     path('logout/', views.logout_django, name='logout'),
-    path('posttest/', views.posttest, name='posttest')
+    path('posttest/', views.posttest, name='posttest'),
+    path('profile/', views.profile, name='profile'),
 
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

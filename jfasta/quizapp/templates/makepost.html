@@ -17,8 +17,8 @@
                     <div class="ask-question-input-part032">
                         <h4>Your Post</h4>
                         <hr>
-                        <form method="post" target="#">
-                            
+                        <form method="post" action="{% url 'forum' %}">
+                            {%  csrf_token %}
                             <div class="question-title39">
                                 <span class="form-description433">Post-Title* </span><input type="text" name="fname"
                                     class="question-ttile32" placeholder="Whats On Your Mind?">
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                             <div class="publish-button2389">
-                                <button type="button" class="publis1291">Publish your Post</button>
+                                <button type="submit" class="publis1291">Publish your Post</button>
                             </div>
                         </form>
                         

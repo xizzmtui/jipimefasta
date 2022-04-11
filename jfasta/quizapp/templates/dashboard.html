@@ -3,35 +3,16 @@
 {% block content %}
 <section class="header-descriptin329">
     <div class="container">
-        <h3>User Profile</h3>
+        <h3>User Dashboard</h3>
         <ol class="breadcrumb breadcrumb839">
             <li><a href="{% url 'index' %}">Home</a></li>
-            <li class="active">User Profile</li>
+            <li class="active">Dashboard</li>
         </ol>
     </div>
 </section>
+<p>Welcome, {{session.username}}</p> <hr>
 
-<div class="content-section">
-    <div class="media">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-        <div class="media-body">
-            <h2 class="account-heading">{{ user.username }}</h2>
-            <p class="text-secondary">{{ user.email }}</p>
-        </div>
-    </div>
-    <!-- FORM HERE -->
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Profile Info</legend>
-            {{ u_form|crispy }}
-            <!-- User form -->
-            <!-- {{ p_form|crispy }}
-            Profile form -->
-        </fieldset>
-        <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Update</button>
-        </div>
-    </form>
-</div>
+<p>Here is Your Information</p>
+
+
 {% endblock content %}

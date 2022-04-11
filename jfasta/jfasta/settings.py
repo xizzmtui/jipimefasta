@@ -155,3 +155,5 @@ JAZZMIN_SETTINGS = {
     # # CSS classes that are applied to the logo above
     # "site_logo_classes": "img-circle",
 }
+LOGIN_URL = 'login'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
