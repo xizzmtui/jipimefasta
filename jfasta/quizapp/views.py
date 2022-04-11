@@ -1,5 +1,6 @@
 
 from http.client import HTTPResponse
+from multiprocessing import context
 from django import db
 from django.shortcuts import render
 
@@ -114,6 +115,25 @@ def feedback(request):
 
 @login_required
 def selectquiz(request):
+    if request.method == 'POST':
+        form_results = request.form
+        level = form_results['levels']
+        subject = form_results['subs']
+        quiz_choice = form_results ['quiz']
+
+        if quiz_choice == 'Challenge Another Student':
+            quiz_option = 'h2h'
+        elif quiz_choice == 'Survival Quiz':
+            quiz_option = 'survival'
+        elif quiz_choice == 'Timed Quiz':
+            quiz_option = 'normal'
+        else:
+            quiz_option = 'index'
+
+
+        return redirect(quiz_option)
+
+
     return render(request, 'selectquiz.html')
 
 

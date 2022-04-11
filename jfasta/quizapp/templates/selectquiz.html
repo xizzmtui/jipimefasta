@@ -17,12 +17,13 @@
                 <div class="ask-question-input-part032">
                     <h4>Your Quiz</h4>
                     <hr>
-                    <form method="post" target="#">
+                    <form method="POST" action="{% url 'selectquiz' %}">
+                        {% csrf_token %}
                         <div class="categori49">
                             <span class="form-description43305">Choose The Level* </span>
                             <label>
-                                <input list="browsers" name="myBrowser" class="list-category53" /></label>
-                            <datalist id="browsers">
+                                <input list="levels" name="levels" class="list-category53" /></label>
+                            <datalist id="levels">
                                 <option value="Form 1">
                                 <option value="Form 2">
                                 <option value="Form 3">
@@ -36,14 +37,14 @@
                         <div class="categori49">
                             <span class="form-description43305">Which Subject?* </span>
                             <label>
-                                <input list="browsers" name="subject" class="list-category53" /></label>
+                                <input list="subs" name="subs" class="list-category53" /></label>
                             <datalist id="subs">
                                 <option value="Kiswahili">
                                 <option value="English">
-                                <option value="Basic Mathematics">
+                                <option value="Mathematics">
                                 <option value="History">
                                 <option value="Geography">
-                                <option value="Civics">
+                                <option value="Civics/GS">
                                 <option value="Physics">
                                 <option value="Chemistry">
                                 <option value="Biology">
@@ -52,10 +53,20 @@
                                 <option value="Computer Studies">
                             </datalist>
                         </div>
+                        <div class="categori49">
+                            <span class="form-description43305">Which Quiz Type?* </span>
+                            <label>
+                                <input list="quiz" name="quiz" class="list-category53" /></label>
+                            <datalist id="quiz">
+                                <option value="Challenge Another Student" id="h2h">
+                                <option value="Survival Quiz" id="survival">
+                                <option value="Timed Quiz" id="normal">
+                            </datalist>
+                        </div>
                         
                         
                         <div class="publish-button2389">
-                            <button type="button" class="publis1291">Start Your Quiz</button>
+                            <button type="button" class="publis1291" type="submit">Start Your Quiz</button>
                         </div>
                     </form>
 
