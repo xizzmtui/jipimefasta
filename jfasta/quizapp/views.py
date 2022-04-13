@@ -73,26 +73,28 @@ def forum(request):
     return render(request, 'forum.html')
 
 @login_required
-def profile(request):
+def profile_update(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
-        # p_form = ProfileUpdateForm(request.POST,request.FILES,instance=request.user.profile) 
-        if u_form.is_valid(): #and p_form.is_valid:
+        
+        if u_form.is_valid():
             u_form.save()
-            # p_form.save()
             messages.success(request, f'Your account has been updated!')
-            return redirect('dashboard') # Redirect back to profile page
+            return redirect('dashboard')
 
     else:
         u_form = UserUpdateForm(instance=request.user)
-        # p_form = ProfileUpdateForm(instance=request.user.profile)
 
     context = {
-        'u_form': u_form,
-        # 'p_form': p_form
+        'u_form': u_form
     }
 
     return render(request, 'profileupdate.html', context)
+
+
+
+def profile_view(request):
+    return render(request,'dashboard.html')
 
 
 @login_required
@@ -131,7 +133,7 @@ def login_django(request):
 	return render(request=request, template_name="login.html", context={"login_form":form})
     
 
-        
+@login_required       
 def logout_django(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.") 
@@ -139,6 +141,17 @@ def logout_django(request):
 
 @login_required
 def makepost(request):
+    if request.method == 'POST':
+        post_contents = request.POST
+        category = post_contents['category']
+        title = post_contents['title']
+        image = post_contents['ufile']
+        content = post_contents['content1']
+        Post.objects.create(usr_id = request.user.id ,category=category, title=title, img=image, content=content)
+        messages.success(request,'data has been successfuly submitted')
+
+
+
     return render(request, 'makepost.html')
 
 @login_required 

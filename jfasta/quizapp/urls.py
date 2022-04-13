@@ -45,7 +45,8 @@ urlpatterns = [
     path('leaderboard/', views.leaderboard, name='leaderboard'),
     path('logout/', views.logout_django, name='logout'),
     path('posttest/', views.posttest, name='posttest'),
-    path('profile/', views.profile, name='profile'),
+    path('profile_update/', views.profile_update, name='profile_update'),
+    path('profile_view/',views.profile_view, name='profile_view'),
 
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -17,17 +17,17 @@
                     <div class="ask-question-input-part032">
                         <h4>Your Post</h4>
                         <hr>
-                        <form method="post" action="{% url 'forum' %}">
+                        <form method="post" action="{% url 'makepost' %}">
                             {%  csrf_token %}
                             <div class="question-title39">
-                                <span class="form-description433">Post-Title* </span><input type="text" name="fname"
+                                <span class="form-description433">Post-Title* </span><input type="text" name="title"
                                     class="question-ttile32" placeholder="Whats On Your Mind?">
                             </div>
     
                             <div class="categori49">
-                                <span class="form-description43305">Category* </span>
+                                <span class="form-description43305"  >Category* </span>
                                 <label>
-                                    <input list="browsers" name="myBrowser" class="list-category53" /></label>
+                                    <input list="browsers" name="category" class="list-category53" /></label>
                                 <datalist id="browsers">
                                     <option value="Kiswahili">
                                     <option value="English">
@@ -44,13 +44,13 @@
                                 </datalist>
                             </div>
                             <div class="button-group-addfile3239">
-                                <span class="form-description23993">Attactment*</span><input type="file" name="ffile"
+                                <span class="form-description23993">Attactment*</span><input type="file" name="ufile"
                                     class="question-ttile3226">
     
                             </div>
                             <div class="details2-239">
                                 <div class="col-md-12 nopadding">
-                                    <textarea id="txtEditor"></textarea>
+                                    <textarea id="txtEditor" name="content1"></textarea>
                                 </div>
                             </div>
                             <div class="publish-button2389">

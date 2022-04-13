@@ -49,6 +49,7 @@ class Post(models.Model):
     title = models.TextField(default=
     'New Post')
     content = models.TextField()
+    category = models.TextField()
     img = models.ImageField(blank=True, null=True)
     usr = models.ForeignKey(
         User, on_delete=models.DO_NOTHING)   # id of the sender
@@ -56,7 +57,7 @@ class Post(models.Model):
     date = models.DateTimeField(default=datetime.now())
 
     def __str__(self):
-        return self.content
+        return self.title
 
 
 class Reply(models.Model):
