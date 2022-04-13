@@ -1,0 +1,112 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+    <section class="header-descriptin329">
+        <div class="container">
+            <h3>Make a Post for Students Forum</h3>
+            <ol class="breadcrumb breadcrumb839">
+                <li><a href="{% url 'forum' %}">Students Forum</a></li>
+                <li class="active">Make a Post</li>
+            </ol>
+        </div>
+    </section>
+    <section class="main-content920">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="ask-question-input-part032">
+                        <h4>Your Post</h4>
+                        <hr>
+                        <form method="post" action="{% url 'forum' %}">
+                            {%  csrf_token %}
+                            <div class="question-title39">
+                                <span class="form-description433">Post-Title* </span><input type="text" name="fname"
+                                    class="question-ttile32" placeholder="Whats On Your Mind?">
+                            </div>
+    
+                            <div class="categori49">
+                                <span class="form-description43305">Category* </span>
+                                <label>
+                                    <input list="browsers" name="myBrowser" class="list-category53" /></label>
+                                <datalist id="browsers">
+                                    <option value="Kiswahili">
+                                    <option value="English">
+                                    <option value="Basic Mathematics">
+                                    <option value="History">
+                                    <option value="Geography">
+                                    <option value="Civics">
+                                    <option value="Physics">
+                                    <option value="Chemistry">
+                                    <option value="Biology">
+                                    <option value="B/Keeping">
+                                    <option value="Commerce">
+                                    <option value="Computer Studies">
+                                </datalist>
+                            </div>
+                            <div class="button-group-addfile3239">
+                                <span class="form-description23993">Attactment*</span><input type="file" name="ffile"
+                                    class="question-ttile3226">
+    
+                            </div>
+                            <div class="details2-239">
+                                <div class="col-md-12 nopadding">
+                                    <textarea id="txtEditor"></textarea>
+                                </div>
+                            </div>
+                            <div class="publish-button2389">
+                                <button type="submit" class="publis1291">Publish your Post</button>
+                            </div>
+                        </form>
+                        
+    
+                    </div>
+    
+    
+                </div>
+                <!--                end of col-md-9 -->
+    
+                <!--           strart col-md-3 (side bar)-->
+                <aside class="col-md-3 sidebar97239">
+                    <div class="status-part3821">
+                        <h4>stats</h4>
+    
+                        <a href="{% url 'forum' %}"><i class="fa fa-question-circle" aria-hidden="true"> Your Posts</i></a>
+                        <i class="fa fa-comment" aria-hidden="true"> Your Replies</i>
+                    </div>
+                    <div class="categori-part329">
+                        <h4>Category</h4>
+                        <ul>
+                            <li><a href="#">Kiswahili</a></li>
+                            <li><a href="#">General</a></li>
+                            <li><a href="#">Mathematics Questions</a></li>
+                            <li><a href="#">News</a></li>
+    
+                        </ul>
+                    </div>
+                    <!--          start tags part-->
+                    <div class="tags-part2398">
+                        <h4>Tags</h4>
+                        <ul>
+                            <li><a href="#">Kiswahili</a></li>
+                            <li><a href="#">Computer</a></li>
+                            <li><a href="#">Mathematics</a></li>
+                            <li><a href="#">English</a></li>
+                            <li><a href="#">A-Level</a></li>
+                            <li><a href="#">O-Level</a></li>
+                            <li><a href="#">Necta</a></li>
+                            <li><a href="#">University</a></li>
+                            <li><a href="#">Tanzania One</a></li>
+    
+                        </ul>
+    
+    
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <br />
+    </section>
+
+
+
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.contrib import admin
-from quizapp.models import ContentSuggested, Feedback, Post, Question, Question_Options, Quiz, Quiz_Question, Reply
+from jfasta.quizapp.models import Solution
+from quizapp.models import ContentSuggested, Feedback, Post, Question, Question_Options, Quiz, Quiz_Question, Reply, Profile, Solution
 
 # # Register your models here.
 
@@ -11,5 +12,5 @@ admin.site.register(Quiz)
 admin.site.register(Quiz_Question)
 admin.site.register(ContentSuggested)
 admin.site.register(Feedback)
-
+admin.site.register(Profile)
 

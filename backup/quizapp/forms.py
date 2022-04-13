@@ -2,7 +2,7 @@ from tkinter.ttk import OptionMenu
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
+from .models import Profile
 
 
 # Create your forms here.
@@ -52,4 +52,9 @@ class UserUpdateForm(forms.ModelForm):
         fields = ['username', 'email', 'password',  'firstname', 'lastname', 'school', 'level', 'combination']
         
 
+# Create a ProfileUpdateForm to update image
+# class ProfileUpdateForm(forms.ModelForm):
+#     class Meta:
+#         model = Profile
+#         # fields = ['image']
 
