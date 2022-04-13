@@ -475,9 +475,9 @@ hr {
 }
 
 #main>input:checked + label {
-    color: #555;
-    border: 1px solid #005B82;
-    border-top: 2px solid #005B82;
+    color: #fff;
+    border: 1px solid #fff;
+    border-top: 2px solid #fff;
     border-bottom: 1px solid #005B82;
     background-color: #005B82;
 }
@@ -1612,7 +1612,8 @@ h5:hover {
     padding: 5px 15px 5px 15px;
     width: 100%;
     color: #fff;
-    background-color: #fff;    border: none;
+    background-color: #003B82;   
+     border: none;
     border-radius: 3px;
     font-weight: bold;
 }

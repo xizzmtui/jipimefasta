@@ -71,9 +71,9 @@ class Reply(models.Model):
 
 class Feedback(models.Model):
     content = models.TextField()
-    usr = models.ForeignKey(
-        User, on_delete=models.DO_NOTHING)   # id of the sender
+    usr = models.ForeignKey(User, on_delete=models.DO_NOTHING)   # id of the sender
     date = models.DateTimeField(default=datetime.now())
+    img = models.ImageField(blank=True, null=True)
 
     def __str__(self):
         return self.usr

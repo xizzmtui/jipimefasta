@@ -149,8 +149,7 @@ def makepost(request):
         content = post_contents['content1']
         Post.objects.create(usr_id = request.user.id ,category=category, title=title, img=image, content=content)
         messages.success(request,'data has been successfuly submitted')
-
-
+        return redirect('forum')
 
     return render(request, 'makepost.html')
 
@@ -161,6 +160,12 @@ def viewpost(request):
 
 @login_required
 def feedback(request):
+    if request.method == 'POST':
+        content = request.POST['content']
+        img = request.POST['ufile']
+        Feedback.objects.create(usr=request.user.id, content=content, img=img)
+        messages.success(request, 'Thank you for contacting us')
+        return redirect('index')
     return render(request, 'feedback.html')
 
 @login_required

@@ -18,32 +18,20 @@
                     <h4>Contact Us</h4>
                     <hr>
                     
-                    <form method="post" action="#" >
-                        <div class="username-part940">
-                            <span class="form-description43">User name* </span><input type="text" name="fname"
-                                class="username029" placeholder="Enter your Name">
-                        </div>
-                        <div class="email-part320">
-                            <span class="form-description442">E-Mail* </span><input type="text" name="fname"
-                                class="email30" placeholder="Enter Your Email">
-                        </div>
-                        <div class="question-title39">
-                            <span class="form-description433">Question-Title* </span><input type="text" name="fname"
-                                class="question-ttile32" placeholder="Write Your Feedback Title">
-                        </div>
+                    <form method="post" action="{% url 'feedback' %}" >
+                        {% csrf_token %}
                         <div class="question-title39">
                             <span class="form-description43313">Details* </span>
-                            <textarea class="question-details3112"
-                                placeholder="Type the description thoroughly and in detail .">
-
-
-                        </textarea>
-
-
+                            <textarea class="question-details3112" name="content"
+                                placeholder="Type the description thoroughly and in detail ."></textarea>
+                        </div>
+                        <div class="button-group-addfile3239">
+                            <span class="form-description23993">Attach any relevant material *</span><input type="file" name="ufile" class="question-ttile3226">
+                        
                         </div>
 
                         <div class="publish-button2389">
-                            <button type="button" class="publis1291">Send us Your Feedback</button>
+                            <button type="submit" class="publis1291">Send us Your Feedback</button>
                         </div>
                     </form>
                     
