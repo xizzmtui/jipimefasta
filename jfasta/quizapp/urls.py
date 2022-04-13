@@ -44,7 +44,6 @@ urlpatterns = [
     path('aboutus/', views.aboutus, name='aboutus'),
     path('leaderboard/', views.leaderboard, name='leaderboard'),
     path('logout/', views.logout_django, name='logout'),
-    path('posttest/', views.posttest, name='posttest'),
     path('profile_update/', views.profile_update, name='profile_update'),
     path('profile_view/',views.profile_view, name='profile_view'),
 

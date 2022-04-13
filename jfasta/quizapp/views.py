@@ -158,9 +158,6 @@ def makepost(request):
 def viewpost(request):
     return render(request, 'viewpost.html')
 
-@login_required
-def posttest(request):
-    return render(request, 'posttest.html')
 
 @login_required
 def feedback(request):
