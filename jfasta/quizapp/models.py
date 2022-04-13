@@ -46,13 +46,12 @@ class Quiz_Question(models.Model):
 
 
 class Post(models.Model):
-    title = models.TextField(default=
+    title = models.CharField(max_length=50, default=
     'New Post')
-    content = models.TextField()
-    category = models.TextField()
+    content = models.CharField(max_length=9999)
+    category = models.CharField(max_length=50, blank=True, null=True)
     img = models.ImageField(blank=True, null=True)
-    usr = models.ForeignKey(
-        User, on_delete=models.DO_NOTHING)   # id of the sender
+    usr = models.ForeignKey(User, on_delete=models.DO_NOTHING)   # id of the sender
     share = models.IntegerField(null=True)
     date = models.DateTimeField(default=datetime.now())
 
