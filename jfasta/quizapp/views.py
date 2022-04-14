@@ -32,11 +32,24 @@ from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
 from django.template.loader import render_to_string
 from django.db.models.query_utils import Q
+from django.core.paginator import Paginator
+from django.views.generic import ListView
+
+
+
 
 
 
 
 # Create your views here.
+def test(request):
+    post_list = Post.objects.all()
+    paginator = Paginator(post_list, 3) # Show 3 posts per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'test.html', {'page_obj': page_obj})
+
+
 def index(request):
     return render(request,'index.html')
 
@@ -71,6 +84,8 @@ def password_reset_request(request):
 @login_required
 def forum(request):
     return render(request, 'forum.html')
+
+
 
 @login_required
 def profile_update(request):

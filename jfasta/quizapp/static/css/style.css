@@ -1110,7 +1110,7 @@ hr {
 }
 
 .points-details938 h5 {
-    color: #fd7362;
+    color: #003057;
     font-weight: bold;
     text-decoration: none;
 }
@@ -1155,7 +1155,7 @@ hr {
 }
 
 .tags-part2398 ul li a:hover {
-    background-color: #fd7362;
+    background-color: #003057;
     padding: 5px 15px;
     border-radius: 15px;
     font-family: fontawesome;
@@ -1194,7 +1194,7 @@ h5 {
 .post-details021 a,
 h5:hover {
     text-decoration: none;
-    color: #fd7362;
+    color: #003057;
 }
 
 .post-details021 p {
@@ -1467,7 +1467,7 @@ h5:hover {
 
 .form-description43 {
     margin-right: 108px;
-    color: #fd7362;
+    color: #003057;
     font-family: fontawesome;
     font-weight: bold;
 }
@@ -1489,7 +1489,7 @@ h5:hover {
 
 .form-description442 {
     margin-right: 130px;
-    color: #fd7362;
+    color: #003057;
     font-family: fontawesome;
     font-weight: bold;
 }
@@ -1511,7 +1511,7 @@ h5:hover {
 
 .form-description433 {
     margin-right: 90px;
-    color: #fd7362;
+    color: #003057;
     font-family: fontawesome;
     font-weight: bold;
 }
@@ -1533,7 +1533,7 @@ h5:hover {
 
 .form-description4342 {
     margin-right: 90px;
-    color: #fd7362;
+    color: #003057;
     font-family: fontawesome;
     font-weight: bold;
 }
@@ -1544,7 +1544,7 @@ h5:hover {
 
 .form-description43305 {
     margin-right: 117px;
-    color: #fd7362;
+    color: #003057;
     font-family: fontawesome;
     font-weight: bold;
 }
@@ -1555,7 +1555,7 @@ h5:hover {
 
 .form-description23993 {
     margin-right: 106px;
-    color: #fd7362;
+    color: #003057;
     font-family: fontawesome;
     font-weight: bold;
     float: left;
@@ -1587,7 +1587,7 @@ h5:hover {
 
 .form-description43313 {
     margin-right: 131px;
-    color: #fd7362;
+    color: #003057;
     font-family: fontawesome;
     font-weight: bold;
     float: left;
@@ -1613,7 +1613,7 @@ h5:hover {
     width: 100%;
     color: #fff;
     background-color: #003B82;   
-     border: none;
+    border: none;
     border-radius: 3px;
     font-weight: bold;
 }
@@ -2321,3 +2321,13 @@ h5:hover {
     background-color:#005B82;
 }
 
+.contentpost{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+h3{
+    color: white;
+    text-shadow: #222;
+}
