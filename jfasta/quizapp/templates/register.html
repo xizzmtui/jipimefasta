@@ -1,18 +1,28 @@
-{% extends "base.html" %}
-
-{% block content %}
-
-{% load crispy_forms_tags %}
+{% extends "base.html" %} {% block content %} {% load crispy_forms_tags %}
 
 <!--Register-->
-<div class="container py-5">
-    <h1>Register</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ register_form|crispy }}
-        <button class="btn btn-primary" type="submit">Register</button>
-    </form>
-    <p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
+<div class="row">
+  <div class="col-md-3"></div>
+
+  <div class="col-md-6">
+    <div class="card mt-40">
+      <div class="card-body">
+        <div class="card-title">
+          <h1>Register</h1>
+        </div>
+
+        <form method="POST">
+          {% csrf_token %} {{ register_form|crispy }}
+          <button class="btn btn-primary" type="submit">Register</button>
+        </form>
+        <p class="text-center">
+          If you already have an account, <a href="/login">login</a> instead.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3"></div>
 </div>
 
 {% endblock %}

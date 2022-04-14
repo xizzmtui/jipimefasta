@@ -1,18 +1,31 @@
-{% extends "base.html" %}
-
-{% block content %}
-
-{% load crispy_forms_tags %}
+{% extends "base.html" %} {% block content %} {% load crispy_forms_tags %}
 
 <!--Login-->
-<div class="container py-5">
-    <h1>Login</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ login_form|crispy }}
-        <button class="btn btn-primary" type="submit">Login</button>
-    </form>
-    <p class="text-center">Don't have an account? <a href="/register">Create an account</a>.</p>
+<div class="row">
+  <div class="col-md-4"></div>
+
+  <div class="col-md-4">
+    <div class="card mt-40">
+      <div class="card-body">
+        <div class="card-title">
+          <h1>Login to your account</h1>
+        </div>
+
+        <form method="POST">
+          {% csrf_token %} {{ login_form|crispy }}
+          <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+
+        <p class="text-center">
+          Don't have an account? <a href="/register">Create an account</a>.
+        </p>
+        <span>Forgot password? </span
+        ><a href="">Reset it</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4"></div>
 </div>
 
 {% endblock %}
