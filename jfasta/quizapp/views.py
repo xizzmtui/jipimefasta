@@ -111,8 +111,9 @@ def profile_update(request):
     return render(request, 'profileupdate.html', context)
 
 
-
+@login_required
 def profile_view(request):
+    
     return render(request,'dashboard.html')
 
 
