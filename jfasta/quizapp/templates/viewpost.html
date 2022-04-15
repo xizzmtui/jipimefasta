@@ -10,35 +10,17 @@
         </ol>
     </div>
 </section>
-<h1 style="text-orientation: uppercase;">{{post.title}}</h1>
+
+<h1 style="text-orientation: uppercase; border: solid white;">{{wall.title}} Title</h1>
 
 <!-- start of the Post -->
 
-<div class="question-type2033">
-    <div class="row">
-
-        <div class="col-md-1">
-            <p>{{post.title}}</p>
-        </div>
-        <div class="col-md-9">
-            <p>{{post.content}}</p>
-        </div>
-        <div class="col-md-2">
-            <div class="ques-type302">
-                <a href="#">
-                    <button type="button" class="q-type238"><i class="fa fa-comment" aria-hidden="true"> {{post.share}}/i></button>
-                </a>
-                <a href="#">
-                    <button type="button" class="q-type23 button-ques2973"> <i class="fa fa-user-circle-o"
-                            aria-hidden="true"> Reply</i>
-                    </button>
-                </a>
-            </div>
-        </div>
+    <div class="postcontent" style="border: solid black;">
+            <p>{{wall.title}}t</p>
+            <p>{{wall.content}}c</p>
+            <p>{{wall.share}}s</p>
     </div>
-</div>
 
 <!-- end of the post -->
-
 
 {% endblock %}

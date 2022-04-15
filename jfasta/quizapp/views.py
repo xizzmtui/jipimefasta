@@ -83,7 +83,11 @@ def password_reset_request(request):
     
 @login_required
 def forum(request):
-    return render(request, 'forum.html')
+    post_list = Post.objects.all()
+    paginator = Paginator(post_list, 10) # Show 3 posts per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'forum.html', {'page_obj': page_obj})
 
 
 
@@ -169,8 +173,19 @@ def makepost(request):
     return render(request, 'makepost.html')
 
 @login_required 
-def viewpost(request):
-    return render(request, 'viewpost.html')
+def viewpost(request, id):
+    posts = Post.objects.filter(id=id).values()
+    post = posts[0]
+    title = post['title']
+    usr = post['usr_id']
+    content = post['content']
+    share = post['share']
+    date = post['date']
+    category = post['category'] 
+    
+    wall = {'title':title, 'content':content, 'usr':usr, 'share':share, 'date':date, 'category':category}
+    print(wall)
+    return render(request, 'viewpost.html', context=wall)
 
 
 @login_required

@@ -21,12 +21,11 @@
 
         {% for post in page_obj %}
     <div class="contentpost" style="border: solid rgb(39, 5, 78) 2px; color: black;">
-        <form action="{% url 'viewpost' %}" method="POST">
-        <button type="submit" class="posttitle">{{ post.title }}</button></a>
+        <a href="{% url 'viewpost' post.id %}"><p class="posttitle">{{ post.title }}</a>
         <p class="postuser">{{post.username}}</p>
         <p class="postcontent">{{ post.content }} </p>
         <p class="postshares">{{post.share}}</p>
-        </form>
+        
     </div>
         {% endfor %}
 
