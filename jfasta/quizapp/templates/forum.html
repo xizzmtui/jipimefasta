@@ -2,21 +2,31 @@
 {% load static %}
 {% block content %}
 
-<div class="Newpost">
-
-    <div id="main">
-
-        <input id="tab1" type="radio" name="tabs" checked>
-        <label for="tab1">Recent Posts</label>
-        <input id="tab2" type="radio" name="tabs">
-        <label for="tab2">Most Replies</label>
-        <input id="tab3" type="radio" name="tabs">
-        <label for="tab3">Recently Replied to</label>
-        <input id="tab4" type="radio" name="tabs">
-        <label for="tab4">No Reply Yet</label>
-        <input id="tab5" type="radio" name="tabs">
-        <label for="tab5">Your Posts History</label>
-
+<section class="header-descriptin329">
+    <div class="container">
+        <h3>Explore the Students Forum</h3>
+        <ol class="breadcrumb breadcrumb839">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="active">Students Forum</li>
+        </ol>
+    </div>
+</section>
+<!-- ======content section/body=====-->
+<section class="main-content920">
+    <div class="container">
+        <!-- <div class="row"> -->
+            <div class="col-md-12">
+                <div id="main">
+                    <input id="tab1" type="radio" name="tabs" checked>
+                    <label for="tab1">Recent Posts</label>
+                    <input id="tab2" type="radio" name="tabs">
+                    <label for="tab2">Most Replies</label>
+                    <input id="tab3" type="radio" name="tabs">
+                    <label for="tab3">Recently Replied to</label>
+                    <input id="tab4" type="radio" name="tabs">
+                    <label for="tab4">No Reply Yet</label>
+                    <input id="tab5" type="radio" name="tabs">
+                    <label for="tab5">Your Posts History</label>
 
 
         {% for post in page_obj %}
@@ -53,8 +63,10 @@
             </span>
         </div>
 
+        </div>
+        </div>
     </div>
-</div>
+</section>
 
 
 
