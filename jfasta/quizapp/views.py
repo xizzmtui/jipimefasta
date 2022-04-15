@@ -185,7 +185,7 @@ def viewpost(request, id):
     
     wall = {'title':title, 'content':content, 'usr':usr, 'share':share, 'date':date, 'category':category}
     print(wall)
-    return render(request, 'viewpost.html', context=wall)
+    return render(request, 'viewpost.html', wall)
 
 
 @login_required
