@@ -10,9 +10,21 @@
         </ol>
     </div>
 </section>
-<p>Welcome, {{user.username}}</p> <hr>
 
-<p>Here is Your Information</p>
+<!-- start of profile information -->
+<div class="profile-user" style="height: 70vh; width= 60vw; background-color: white; color:black;">
+    
+    <p>Welcome, {{user.username}}</p> <hr>
+    <p>Here is Your Information</p> <hr>
+    <p>Username :  {{user.username}}</p> <hr>
+    <p>Firstname :  {{user.first_name}}</p> <hr>
+    <p>Lastname :  {{user.last_name}} </p> <hr>
+    <p> School : {{user.school}} </p> <hr>
+    <p>Combination : {{user.combination}}</p> <hr>
+    <p>Level : Form {{user.level}}</p>
+    
+</div>
+<!-- end of profile in formation -->
 
 
 {% endblock content %}

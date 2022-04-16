@@ -193,7 +193,7 @@ def feedback(request):
     if request.method == 'POST':
         content = request.POST['content']
         img = request.POST['ufile']
-        Feedback.objects.create(usr=request.user.id, content=content, img=img)
+        Feedback.objects.create(usr=request.user, content=content, img=img)
         messages.success(request, 'Thank you for contacting us')
         return redirect('index')
     return render(request, 'feedback.html')
