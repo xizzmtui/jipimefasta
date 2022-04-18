@@ -8,24 +8,40 @@
     <div class="card mt-40">
       <div class="card-body">
         <div class="card-title">
-          <h1>Login to your account</h1>
+          <h1 class="text-center">Login to your account</h1>
         </div>
-
+        <div class="container">
+          <div class="container">
+            <div class="container">
+    
         <form method="POST">
           {% csrf_token %} {{ login_form|crispy }}
-          <button class="btn btn-primary" type="submit">Login</button>
+          <div class="text-center mb-5">
+          <button class="btn btn-primary " type="submit">Login</button>
         </form>
+          </div> 
+        </div>
+      </div>
+    </div>
 
         <p class="text-center">
           Don't have an account? <a href="/register" style="color:aliceblue;">Create an account</a>.
         </p>
+<<<<<<< Updated upstream
         <span>Forgot password? </span
         ><a href="{% url 'password_reset' %}" style="color:aliceblue;">Reset it</a>
+=======
+        <p class="text-center">Forgot password?<a href="{% url 'password_reset' %}">Reset it</a> </p>
+       
+>>>>>>> Stashed changes
       </div>
     </div>
   </div>
 
   <div class="col-md-4"></div>
 </div>
+</br>
+
+
 
 {% endblock %}
