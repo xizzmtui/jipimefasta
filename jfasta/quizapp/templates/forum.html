@@ -30,15 +30,22 @@
 
 
         {% for post in page_obj %}
-        <div class="contentpost" style="border: solid rgb(39, 5, 78) 2px; color: black;">
-            <a href="{% url 'viewpost' post.id %}">
-                <p class="posttitle">{{ post.title }}
-            </a>
-            <p class="postuser">{{post.username}}</p>
-            <p class="postcontent">{{ post.content }} </p>
-            <p class="postshares">{{post.share}}</p>
-
-        </div>
+        <div class="container text-center mt-5">
+            <div class= "card bg mt-4">
+                    <div >
+                        <a href="{% url 'viewpost' post.id %}">
+                        <h1 class="card-title  mt-3 ">{{ post.title }}</h1>
+                    </a>
+                        <hr class="p-0 m-0">
+                        <p class="postuser">{{post.username}}</p>
+                        <p   class=" m-5 p-5" style="color:aliceblue">{{ post.content }}</p>
+                        <p style="color:aliceblue">{{post.share}}</p>
+                        <hr>
+                    </div>
+            
+              </div>
+            </div>
+       
         {% endfor %}
 
 

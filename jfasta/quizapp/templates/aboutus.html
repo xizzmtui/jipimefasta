@@ -2,28 +2,57 @@
 {% load static %}
 {% block content %}
 
-    <h1>About Jipime Fasta Team</h1>
-    <p style="color:aliceblue; font-size:large; padding: 15px;">Jipime Fasta is a free online solution for students who have to remember large amounts of information and assess their
-    knowledge in multiple fields. You can easily finish your work by answering interactive questions about different topics
-    or studies in your course. There is also an opportunity to compare your performance with students from across the
-    country.</p>
-    <div>
-        <img src="{% static 'image/img/image3.jpg' %}"  alt="New Picture">
-    </div>
 
-    <p style="color:aliceblue; font-size:large; padding: 15px;">Jipime Fasta is here to help you succeed in your final exams and in your studies at school. We use interactive tests to
-    prepare students for final exams and to help students study for exams and know what is expected of them. We also give
-    you this information for your professors, so you know what your grade is expected to be and when you'll get your grade
-    back.</p>
-    <div>
-        <img src="{% static 'image/img/image2.jpg' %}" alt="New Picture">
+<div class="container" mt-5>
+  <div class= "card bg">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{% static 'image/img/image3.jpg' %}" class="img-fluid" alt="New Picture">
+        </div>
+        <div class="col-md-8">
+            <h1 class="card-title mt-3  ">About Jipime Fasta Team</h1>
+            <p style="color:aliceblue">Jipime Fasta is a free online solution for students who have to remember large amounts of information and assess their
+                knowledge in multiple fields. You can easily finish your work by answering interactive questions about different topics
+                or studies in your course. There is also an opportunity to compare your performance with students from across the
+                country.</p>
+        </div>
     </div>
-    <p style="color:aliceblue; font-size:large; padding: 15px;">Suppose you want to improve the grades of your students. If you believe you can give them a leg up with a well-fitting
-    shoe, Jipime Fasta will be a powerful tool to help them. Jipime Fasta is an interactive tool that helps students prepare
-    for multiple types of final exams like Physics, Chemistry and Biology study. Each test features
-    various modes and questions that help students understand the content.</p>
+  </div>
 
-    <div>
-        <img src="{% static 'image/img/image1.jpg' %}" alt="New Picture">
+    <div class= "card bg mt-4">
+      <div class="row">
+          <div class="col-md-4">
+              <img src="{% static 'image/img/image2.jpg' %}" class="img-fluid" alt="New Picture">
+          </div>
+          <div class="col-md-8">
+              <h1 class="card-title  mt-3 ">///////////////////</h1>
+              <p style="color:aliceblue">Jipime Fasta is here to help you succeed in your final exams and in your studies at school. We use interactive tests to
+                prepare students for final exams and to help students study for exams and know what is expected of them. We also give
+                you this information for your professors, so you know what your grade is expected to be and when you'll get your grade
+                back.</p>
+          </div>
+      </div>
     </div>
+    <div class= "card bg mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{% static 'image/img/image1.jpg' %}" class="img-fluid" alt="New Picture">
+            </div>
+            <div class="col-md-8">
+                <h1 class="card-title  mt-3 ">////////////////////////////</h1>
+                <p style="color:aliceblue">Suppose you want to improve the grades 
+                    of your students. If you believe you can give them a leg up with a well-fitting
+                shoe, Jipime Fasta will be a powerful tool to help them. Jipime Fasta is an interactive 
+                tool that helps students prepare
+                for multiple types of final exams like Physics, Chemistry and Biology study. Each test features
+                various modes and questions that help students understand the content.</p>
+            </div>
+        </div>
+      </div>
+    </br>
+</div>
+
+        
+
+     
 {%  endblock %}
