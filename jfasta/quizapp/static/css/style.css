@@ -3,8 +3,12 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     
 }
+ .bg {
+     background-color: #003057;
+ }
 
 body {
     background-color: #005B82;
@@ -2322,6 +2326,7 @@ h5:hover {
 }
 
 .contentpost{
+    border: solid rgb(39, 5, 78) 2px; color: black;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
