@@ -9,4 +9,14 @@
                 <li class="active">Favorite Notes</li>
             </ol>
         </div>
+
+        {% for note in notesy %}
+        <div class="notes-section" style="background-color: white; border: solid black; height: 20vh;">
+            <ul>
+                <li><a href="{% url 'notes' %}">{{note.category}}</a></li>
+                <li>{{note.level}}</li>
+                <li>{{note.date}}</li>
+            </ul>
+        {% endfor %}
+        </div>
 {% endblock%}

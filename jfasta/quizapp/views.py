@@ -247,12 +247,14 @@ def notes(request):
 @login_required
 def favnotes(request):
     favnot = NotesUser.objects.filter(yuza=request.user).values()
-    favnut = favnot[0]
-    print (favnut)
-    notz = Notes.objects.filter(id=favnut['fav_id']).values()
-    notes = notz[0]
-    print(notes)
-    return render(request, 'favnotes.html', notes )
+    notesy = []
+
+    for favnut in favnot:
+        print (favnut)
+        notez = Notes.objects.filter(id=favnut['fav_id']).values()[0]
+        notesy.append(notez)
+        print(notesy)
+    return render(request, 'favnotes.html', {'notesy':notesy})
 
 @login_required
 def selectnotes(request):
@@ -275,9 +277,8 @@ def selectnotes(request):
             levels = request.user.id
 
         notez = Notes.objects.filter(category=title, level=levels).values()[0]
-        print(notez)
         messages.success(request, 'notes available')
-        return redirect('notes')
+        return render(request,'notes.html', notez)
     return render(request, 'selectnotes.html')
 
 @login_required
