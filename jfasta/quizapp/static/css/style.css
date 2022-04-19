@@ -6,6 +6,7 @@
     box-sizing: border-box;
     
 }
+
  .bg {
      background-color: #003057;
  }
@@ -201,9 +202,14 @@ hr {
 
 .navbar-brand > img {
     display: block;
-    margin-top: -40px;
+    margin-top: -20px;
     
 }
+.navbar-default .navbar-nav {
+    display: inline;
+
+}
+
 
 .navbar-default .navbar-nav > li > a {
     color: #fff;
@@ -212,10 +218,13 @@ hr {
     border-radius: 3px; 
     font-weight: bold;
     font-family: sans-serif;
-    align-items: flex-end;
+    
+    
+
 }
 .navbar-default .navbar-nav > li{
    margin: 0px 5px;
+
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
