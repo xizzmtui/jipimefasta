@@ -1,4 +1,5 @@
 
+from email.errors import NonPrintableDefect
 from http.client import HTTPResponse
 from multiprocessing import context
 from django import db
@@ -17,7 +18,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from rest_framework import status
-from .models import User, Question, Question_Options, Quiz, Quiz_Question, Feedback, ContentSuggested, Post,  Reply
+from .models import NotesUser, User, Question, Question_Options, Quiz, Quiz_Question, Feedback, ContentSuggested, Post,  Reply, Notes
 from .serializers import UserSerializer, QuizSerializer, Quiz_QuestionSerializer, QuestionSerializer, Question_OptionsSerializer,FeedbackSerializer, ContentSuggestedSerializer, PostSerializer, ReplySerializer
 from quizapp import serializers
 import sqlite3
@@ -119,6 +120,7 @@ def profile_view(request):
 @login_required
 def dashboard(request):
     return render(request, 'dashboard.html')
+
 
 def register(request):
 	if request.method == "POST":
@@ -242,6 +244,41 @@ def normal(request):
 def notes(request):
     return render(request, 'notes.html')
 
+@login_required
+def favnotes(request):
+    favnot = NotesUser.objects.filter(yuza=request.user).values()
+    favnut = favnot[0]
+    print (favnut)
+    notz = Notes.objects.filter(id=favnut['fav_id']).values()
+    notes = notz[0]
+    print(notes)
+    return render(request, 'favnotes.html', notes )
+
+@login_required
+def selectnotes(request):
+    if request.method == 'POST':
+        title = request.POST['subs']
+        level = request.POST['levels']
+        if level == 'Form 1' :
+            levels = 1
+        elif level == 'Form 2':
+            levels = 2
+        elif level == 'Form 3':
+            levels = 3
+        elif level == 'Form 4':
+            levels = 4
+        elif level == 'Form 5':
+            levels = 5
+        elif level == 'Form 6':
+            levels = 6
+        else:
+            levels = request.user.id
+
+        notez = Notes.objects.filter(category=title, level=levels).values()[0]
+        print(notez)
+        messages.success(request, 'notes available')
+        return redirect('notes')
+    return render(request, 'selectnotes.html')
 
 @login_required
 def contribute(request):
