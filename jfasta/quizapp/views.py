@@ -241,8 +241,9 @@ def normal(request):
 
 
 @login_required
-def notes(request):
-    return render(request, 'notes.html')
+def notes(request, id):
+    notesy = Notes.objects.filter(id=id).values()[0]
+    return render(request, 'notes.html', notesy)
 
 @login_required
 def favnotes(request):
