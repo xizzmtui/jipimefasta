@@ -167,7 +167,7 @@ def makepost(request):
         category = post_contents['category']
         title = post_contents['title']
         image = post_contents['ufile']
-        content = post_contents['content1']
+        content = post_contents['content72']
         Post.objects.create(usr_id = request.user.id ,category=category, title=title, img=image, content=content)
         messages.success(request,'data has been successfuly submitted')
         return redirect('forum')

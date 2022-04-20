@@ -17,7 +17,7 @@
     <title>Jipime Fasta</title>
 
      <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+     <!-- <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"> -->
    
  
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
@@ -126,6 +126,21 @@
         $(document).ready(function () {
             $("#txtEditor").Editor();
         });
+        
+        function openTab(evt, tab_id) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tablinks[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName('tablinks');
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks.className.replace(" active", "");
+            }
+            document.getElementById(tab_id).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        document.getElementById("tab1").click();
     </script>
     
     </body>

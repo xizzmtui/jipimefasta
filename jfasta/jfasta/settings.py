@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'quizapp',
     'rest_framework',
     'crispy_forms',
+    'bootstrap4',
     
 ]
 
