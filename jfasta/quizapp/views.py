@@ -93,7 +93,7 @@ def password_reset_request(request):
     
 @login_required
 def forum(request):
-    post_list = Post.objects.all()
+    post_list = Post.objects.all().order_by('-date')
     paginator = Paginator(post_list, 10) # Show 3 posts per page.
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -101,6 +101,8 @@ def forum(request):
 
 @login_required
 def forum_1(request):
+
+    # most replied to
     post_list = Post.objects.all()
     paginator = Paginator(post_list, 10) # Show 3 posts per page.
     page_number = request.GET.get('page')
@@ -109,6 +111,8 @@ def forum_1(request):
 
 @login_required
 def forum_2(request):
+
+    # recent replied
     post_list = Post.objects.all()
     paginator = Paginator(post_list, 10) # Show 3 posts per page.
     page_number = request.GET.get('page')
@@ -117,6 +121,8 @@ def forum_2(request):
     
 @login_required
 def forum_3(request):
+
+    # no reply yet
     post_list = Post.objects.all()
     paginator = Paginator(post_list, 10) # Show 3 posts per page.
     page_number = request.GET.get('page')
@@ -125,7 +131,9 @@ def forum_3(request):
 
 @login_required
 def forum_4(request):
-    post_list = Post.objects.all()
+
+    # own posts
+    post_list = Post.objects.filter(usr=request.user.id).order_by('-date')
     paginator = Paginator(post_list, 10) # Show 3 posts per page.
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -216,6 +224,13 @@ def makepost(request):
 
 @login_required 
 def viewpost(request, id):
+    if request.method == 'POST':
+        content = request.POST['reply']
+        usr = User.objects.filter(id=request.user.id)[0]
+        pid = Post.objects.filter(id=id)[0]
+        Reply.objects.create(content=content,usr=usr,pid=pid)
+        messages.success(request, 'Reply saved')
+        return redirect('viewpost', id=id)
     posts = Post.objects.filter(id=id).values()
     post = posts[0]
     title = post['title']
@@ -224,8 +239,12 @@ def viewpost(request, id):
     share = post['share']
     date = post['date']
     category = post['category'] 
+    post_id = post['id']
+
+    page_obj = Reply.objects.filter(pid=id)
+
     
-    wall = {'title':title, 'content':content, 'usr':usr, 'share':share, 'date':date, 'category':category}
+    wall = {'id':post_id, 'title':title, 'content':content, 'usr':usr, 'share':share, 'date':date, 'category':category, 'page_obj':page_obj}
     print(wall)
     return render(request, 'viewpost.html', wall)
 

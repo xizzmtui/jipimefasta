@@ -64,9 +64,10 @@ class Reply(models.Model):
     usr = models.ForeignKey(
         User, on_delete=models.DO_NOTHING)  # id of the replier
     date = models.DateTimeField(default=datetime.now())
+    content = models.TextField(default=None)
 
     def __str__(self):
-        return self.pid
+        return self.pid.title + " " +self.usr.username
 
 
 class Feedback(models.Model):

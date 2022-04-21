@@ -19,11 +19,38 @@
             <a href="{% url 'userprofile' usr %}"><p class="postuser" style="color:aliceblue;">{{usr}}</p></a>
             <hr class="p-0 m-0">
             <p   class=" m-5 p-5" style="color:aliceblue">  {{content}}</p>
-            <p style="color:aliceblue">{{share}}</p>
+            <p style="color:aliceblue">{{share}}</p> 
+
+            </button>
             <hr>
         </div>
 
   </div>
+
+  <!-- Replies Start -->
+
+<h1>Replies:</h1>
+{% for reply in page_obj %}
+<div class="card bg mt-4">
+    <div>
+        <a href="{%url 'userprofile' reply.usr.id %}"><h1 class="card-title  mt-3 ">{{ reply.usr.username }}</h1></a>
+        <hr class="p-0 m-0">
+        <p class="postuser" style="color:aliceblue;">{{reply.content}}</p>
+        <hr>
+    </div>
+    {% endfor %}
+</div>
+  <!-- Replies End -->
+  <!-- make reply -->
+<form action="{% url 'viewpost' id %}" method="post">
+    {% csrf_token %}
+  <div>
+
+    <textarea name="reply" id="reply" cols="50" rows="10" placeholder="Enter Your Reply Here"></textarea>
+    <button type="submit">Reply</button>
+  </div>
+</form>
+  <!-- end reply -->
 </div>
 </br>
 
