@@ -2349,8 +2349,7 @@ h3{
 
 /* forum */
 
-.tabcontent{
-    display: none;
+/* .tabcontent{
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
@@ -2359,4 +2358,4 @@ h3{
 @keyframes fadeEffect{
     from {opacity: 0;}
     to {opacity: 1;}
-}
+} */

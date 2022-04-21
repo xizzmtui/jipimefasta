@@ -29,6 +29,10 @@ urlpatterns = [
 
 #  routes to other web functionalities
     path('forum/', views.forum, name='forum'),
+    path('forum1/', views.forum_1, name='forum1'),
+    path('forum2/', views.forum_2, name='forum2'),
+    path('forum3/', views.forum_3, name='forum3'),
+    path('forum4/', views.forum_4, name='forum4'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('login/', views.login_django, name='login'),
     path('register/', views.register, name='register'),
@@ -49,6 +53,7 @@ urlpatterns = [
     path('profile_update/', views.profile_update, name='profile_update'),
     path('profile_view/',views.profile_view, name='profile_view'),
     path('test/', views.test, name='test'),
+    path('userprofile/<int:id>', views.userprofile, name='userprofile'),
 
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<section class="header-descriptin329">
+      <div class="container">
+          <h3>User Profile</h3>
+          <ol class="breadcrumb breadcrumb839">
+              <li><a href="{% url 'index' %}">Home</a></li>
+              <li class="active">User Profile</li>
+          </ol>
+      </div>
+  </section>
+<div class="userprof" style="background-color: aliceblue; border: solid black; height: 50vh;">
+      <p>{{username}} Profile</p> <hr>
+      <p>First Name : {{first_name}} </p>
+      <p>Last Name : {{last_name}} </p>
+      <p>Date Joined : {{date_joined}} </p>
+</div>
+  
+{% endblock %}

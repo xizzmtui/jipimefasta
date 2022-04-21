@@ -15,7 +15,8 @@
 <div class="container text-center mt-5">
 <div class= "card bg mt-4">
         <div >
-            <h1 class="card-title  mt-3 ">{{title}}</h1>
+            <h1 class="card-title  mt-3 ">{{title}}</h1> |
+            <a href="{% url 'userprofile' usr %}"><p class="postuser" style="color:aliceblue;">{{usr}}</p></a>
             <hr class="p-0 m-0">
             <p   class=" m-5 p-5" style="color:aliceblue">  {{content}}</p>
             <p style="color:aliceblue">{{share}}</p>

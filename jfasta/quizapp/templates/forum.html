@@ -17,25 +17,25 @@
         <!-- <div class="row"> -->
             <div class="tab">
                 <div id="main">
-                    <button id="tab1" class="tablinks"  onclick="openTab(event,'rposts')" ></button>
+                    <a href="{% url 'forum' %}"><button id="tab1" class="tablinks"  ></button></a>
                     <label for="tab1">Recent Posts</label>
 
-                    <button id="tab2" class="tablinks"  onclick="openTab(event,'mreplies')"></button>
+                    <a href="{% url 'forum1' %}"><button id="tab2" class="tablinks" ></button></a>
                     <label for="tab2">Most Replies</label>
 
 
-                    <button id="tab3" class="tablinks"  onclick="openTab(event,'rreplied')"></button>
+                    <a href="{% url 'forum2' %}"><button id="tab3" class="tablinks" ></button></a>
                     <label for="tab3">Recently Replied to</label>
 
-                    <button id="tab4" class="tablinks"   onclick="openTab(event,'nreply')"></button>
+                    <a href="{% url 'forum3' %}"><button id="tab4" class="tablinks"></button></a>
                     <label for="tab4">No Reply Yet</label>
 
 
-                    <button id="tab5" class="tablinks" onclick="openTab(event,'phisto')"></button>
+                    <a href="{% url 'forum4' %}"><button id="tab5" class="tablinks"></button></a>
                     <label for="tab5">Your Posts History</label>
 
 
-        <!-- Recent Posts -->
+        <!--Posts -->
         <div class="tabcontent" id="rposts">
             {% for post in page_obj %}
             <div class= "card bg mt-4">
@@ -43,7 +43,7 @@
                         <a href="{% url 'viewpost' post.id %}">
                         <h1 class="card-title  mt-3 ">{{ post.title }}</h1></a>
                         <hr class="p-0 m-0">
-                        <p class="postuser">{{post.username}}</p>
+                        <a href="{% url 'userprofile' post.usr.id %}"><p class="postuser" style="color:aliceblue;">{{post.usr.username}}</p></a>
                         <p  class=" m-5 p-5" style="color:aliceblue">{{ post.content }}</p>
                         <p style="color:aliceblue">{{post.share}}</p>
                         <hr>
@@ -69,152 +69,9 @@
                 </span>
             </div>
         </div>
-        <!-- End of Recent Posts  -->
+        <!-- End of Posts  -->
 
-        <!-- Most Replied -->
-        <div class="tabcontent" id="mposts">
-            {% for post in page_obj %}
-            <div class="card bg mt-4">
-                <div>
-                    <a href="{% url 'viewpost' post.id %}">
-                        <h1 class="card-title  mt-3 ">{{ post.title }}</h1>
-                    </a>
-                    <hr class="p-0 m-0">
-                    <p class="postuser">{{post.username}}</p>
-                    <p class=" m-5 p-5" style="color:aliceblue">{{ post.content }}</p>
-                    <p style="color:aliceblue">{{post.share}}</p>
-                    <hr>
-                </div>
-                {% endfor %}
-            </div>
-            <div class="pagination">
-                <span class="step-links">
-                    {% if page_obj.has_previous %}
-                    <a href="?page=1">&laquo; first</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-                    {% endif %}
-            
-                    <span class="current">
-                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                    </span>
-            
-                    {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">next</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-                    {% endif %}
-                </span>
-            </div>
-        </div>
-       <!-- End of Most Replied -->
-
-       <!-- Not Replied -->
-        <div class="tabcontent" id="nreply">
-            {% for post in page_obj %}
-            <div class="card bg mt-4">
-                <div>
-                    <a href="{% url 'viewpost' post.id %}">
-                        <h1 class="card-title  mt-3 ">{{ post.title }}</h1>
-                    </a>
-                    <hr class="p-0 m-0">
-                    <p class="postuser">{{post.username}}</p>
-                    <p class=" m-5 p-5" style="color:aliceblue">{{ post.content }}</p>
-                    <p style="color:aliceblue">{{post.share}}</p>
-                    <hr>
-                </div>
-                {% endfor %}
-            </div>
-            <div class="pagination">
-                <span class="step-links">
-                    {% if page_obj.has_previous %}
-                    <a href="?page=1">&laquo; first</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-                    {% endif %}
-            
-                    <span class="current">
-                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                    </span>
-            
-                    {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">next</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-                    {% endif %}
-                </span>
-            </div>
-        </div>
-       <!-- End of Not Replied -->
-
-        <!-- Recently Replied -->
-        <div class="tabcontent" id="rreplied">
-            {% for post in page_obj %}
-            <div class="card bg mt-4">
-                <div>
-                    <a href="{% url 'viewpost' post.id %}">
-                        <h1 class="card-title  mt-3 ">{{ post.title }}</h1>
-                    </a>
-                    <hr class="p-0 m-0">
-                    <p class="postuser">{{post.username}}</p>
-                    <p class=" m-5 p-5" style="color:aliceblue">{{ post.content }}</p>
-                    <p style="color:aliceblue">{{post.share}}</p>
-                    <hr>
-                </div>
-                {% endfor %}
-            </div>
-            <div class="pagination">
-                <span class="step-links">
-                    {% if page_obj.has_previous %}
-                    <a href="?page=1">&laquo; first</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-                    {% endif %}
-            
-                    <span class="current">
-                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                    </span>
-            
-                    {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">next</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-                    {% endif %}
-                </span>
-            </div>
-        </div>
-        <!-- End of Recently Replied -->
-
-        <!--  Users own Posts -->
-        <div class="tabcontent" id="phisto">
-            {% for post in page_obj %}
-            <div class="card bg mt-4">
-                <div>
-                    <a href="{% url 'viewpost' post.id %}">
-                        <h1 class="card-title  mt-3 ">{{ post.title }}</h1>
-                    </a>
-                    <hr class="p-0 m-0">
-                    <p class="postuser">{{post.username}}</p>
-                    <p class=" m-5 p-5" style="color:aliceblue">{{ post.content }}</p>
-                    <p style="color:aliceblue">{{post.share}}</p>
-                    <hr>
-                </div>
-                {% endfor %}
-            </div>
-            <div class="pagination">
-                <span class="step-links">
-                    {% if page_obj.has_previous %}
-                    <a href="?page=1">&laquo; first</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-                    {% endif %}
-            
-                    <span class="current">
-                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                    </span>
-            
-                    {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">next</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-                    {% endif %}
-                </span>
-            </div>
-        </div>
-        <!-- End of Users Own Posts -->
-
+       
 
         </div>
         </div>

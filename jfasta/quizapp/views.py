@@ -50,6 +50,15 @@ def test(request):
     page_obj = paginator.get_page(page_number)
     return render(request, 'test.html', {'page_obj': page_obj})
 
+@login_required
+def userprofile(request, id):
+    yuza = User.objects.filter(id=id).values()[0]
+    username = yuza['username']
+    first_name = yuza['first_name']
+    last_name = yuza['last_name']
+    date_joined = yuza['date_joined']
+    yuza1 = {'username': username, 'first_name': first_name, 'last_name': last_name, 'date_joined':date_joined}
+    return render(request, 'userprofile.html', yuza1)
 
 def index(request):
     return render(request,'index.html')
@@ -90,6 +99,37 @@ def forum(request):
     page_obj = paginator.get_page(page_number)
     return render(request, 'forum.html', {'page_obj': page_obj})
 
+@login_required
+def forum_1(request):
+    post_list = Post.objects.all()
+    paginator = Paginator(post_list, 10) # Show 3 posts per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'forum.html', {'page_obj': page_obj})
+
+@login_required
+def forum_2(request):
+    post_list = Post.objects.all()
+    paginator = Paginator(post_list, 10) # Show 3 posts per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'forum.html', {'page_obj': page_obj})
+    
+@login_required
+def forum_3(request):
+    post_list = Post.objects.all()
+    paginator = Paginator(post_list, 10) # Show 3 posts per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'forum.html', {'page_obj': page_obj})
+
+@login_required
+def forum_4(request):
+    post_list = Post.objects.all()
+    paginator = Paginator(post_list, 10) # Show 3 posts per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'forum.html', {'page_obj': page_obj})
 
 
 @login_required
