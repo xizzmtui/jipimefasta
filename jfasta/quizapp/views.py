@@ -2,6 +2,7 @@
 from email.errors import NonPrintableDefect
 from http.client import HTTPResponse
 from multiprocessing import context
+from pydoc import describe
 from django import db
 from django.shortcuts import render
 
@@ -266,6 +267,8 @@ def selectquiz(request):
         level = form_results['levels']
         subject = form_results['subs']
         quiz_choice = form_results ['quiz']
+        request.session['level']=level
+        request.session['subject']=subject
 
         if quiz_choice == 'Challenge Another Student':
             quiz_option = 'h2h'
@@ -277,7 +280,7 @@ def selectquiz(request):
             quiz_option = 'index'
 
 
-        return redirect(quiz_option)
+        return redirect(quiz_option,)
 
 
     return render(request, 'selectquiz.html')
@@ -296,7 +299,26 @@ def survival(request):
 
 @login_required
 def normal(request):
-    return render(request, 'normal.html')
+        category = request.session['subject']
+        level = request.session['level']
+        if level == 'Form 1' :
+            levels = 1
+        elif level == 'Form 2':
+            levels = 2
+        elif level == 'Form 3':
+            levels = 3
+        elif level == 'Form 4':
+            levels = 4
+        elif level == 'Form 5':
+            levels = 5
+        else:
+            levels = 6
+        id =1
+        quest = Question.objects.filter(category=category, level=levels)
+        print(quest)
+        options = Question_Options.objects.filter(qid=id)
+        questions = {'questions': quest, 'options':options}
+        return render(request, 'test.html', questions)
 
 
 @login_required
@@ -352,6 +374,32 @@ def aboutus(request):
 @login_required
 def leaderboard(request):
     return render(request, 'leaderboard.html')
+
+@login_required
+def make_questions(request):
+    if request.method == "POST":
+        description = request.POST['content']
+        category = request.POST['category']
+        level = request.POST['level']
+        answer = request.POST['answer']
+        answer_description = request.POST['answer_description']
+
+        Question.objects.create(description=description, category=category, level=level, answer=answer, answer_description=answer_description)
+
+        question = Question.objects.filter(description=description, category=category, level=level, answer=answer, answer_description=answer_description)[0]
+        # question options
+        opt1 = request.POST['opt1']
+        opt2 = request.POST['opt2']
+        opt3 = request.POST['opt3']
+        opt4 = request.POST['opt4']
+        Question_Options.objects.create(qid=question, option=opt1)
+        Question_Options.objects.create(qid=question, option=opt2)
+        Question_Options.objects.create(qid=question, option=opt3)
+        Question_Options.objects.create(qid=question, option=opt4)
+
+        messages.success(request,'Question Created')
+        return render(request, 'makequestion.html')
+    return render(request, 'makequestion.html')
 
 
 

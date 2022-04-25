@@ -54,6 +54,6 @@ urlpatterns = [
     path('profile_view/',views.profile_view, name='profile_view'),
     path('test/', views.test, name='test'),
     path('userprofile/<int:id>', views.userprofile, name='userprofile'),
-
+    path('makequestion/', views.make_questions, name='makequestion'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
