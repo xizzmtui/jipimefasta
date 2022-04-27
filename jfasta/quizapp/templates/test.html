@@ -1,4 +1,6 @@
 {% load static %}
+
+
 <!DOCTYPE html>
 <!-- Created By CodingNepal - www.codingnepalweb.com -->
 <!DOCTYPE html>
@@ -69,18 +71,15 @@
             <button class="quit">Quit Quiz</button>
         </div>
     </div>
-    
-    {% for question in questions %}
-    {% quiz['num'+str(i)]=question %}
-    {% i++ %}
-    {% endfor %}
-    {{questions | json_script:"quiz"}}
-
-    <p>{{quiz}}</p>
-
     <!-- Inside this JavaScript file I've inserted Questions and Options only -->
-    <script src="{% static 'js/test.js' %}"></script>
+    <script type=text/javascript>
+        // creating an array and passing the number, questions, options, and answers
+            var quiz = JSON.parse({{ quiz|safe }})
+            let questions =  quiz;
+            export
+    </script>
     <!-- Inside this JavaScript file I've coded all Quiz Codes -->
+    <script src="{% static 'js/test.js' %}"></script>
     <script src="{% static 'js/test2.js' %}"></script>
 </body>
 </html>

@@ -39,7 +39,7 @@
         <div class="tabcontent" id="rposts">
             {% for post in page_obj %}
             <div class= "card bg mt-4">
-                    <div >
+                    <div class="postin" style="padding: 10px; border: solid white;">
                         <a href="{% url 'viewpost' post.id %}">
                         <h1 class="card-title  mt-3 ">{{ post.title }}</h1></a>
                         <hr class="p-0 m-0">

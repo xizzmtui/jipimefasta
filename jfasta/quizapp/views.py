@@ -313,11 +313,34 @@ def normal(request):
             levels = 5
         else:
             levels = 6
-        id =1
+
         quest = Question.objects.filter(category=category, level=levels)
-        print(quest)
-        options = Question_Options.objects.filter(qid=id)
-        questions = {'questions': quest, 'options':options}
+        
+        quiz = []
+        i = 1
+        for quez in quest:
+            options = Question_Options.objects.filter(qid=quez)
+            optionz = []
+            for option in options:
+                optionz.append(option.option)
+            q_dict = {
+                "numb": i,
+                "question": quez.description,
+                "answer": quez.answer,
+                "options":optionz
+            }
+
+
+
+
+
+            quiz.append(q_dict)
+            print(quiz)
+            i+=1
+        f = open("quizapp/static/js/test.js", "w")
+        f.write("let questions = "+str(quiz))
+        f.close()
+        questions = {'questions': quiz}
         return render(request, 'test.html', questions)
 
 
