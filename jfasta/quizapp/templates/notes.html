@@ -11,12 +11,16 @@
     </div>
 </section>
 
-        <div class="notes-section" style="background-color: white; border: solid black; height: auto;">
+        <div class="notes-section" style="background-color: #003057; border: solid white; height: auto; color:aliceblue; padding: 10px; margin: 10px;">
             <ul>
-                <li>{{category}}</li>
-                <li>{{level}}</li>
+                <div class="headernotes" style="text-align: center; margin: 10px;">
+                <li>Subject:  {{category}}</li>
+                <li>Form {{level}}</li>
+                </div>
+                <div class="contentnotes" style="margin: 10px;">
                 <li>{{content}}</li>
-                <li>{{date}}</li>
+                <li>Date Published:  {{date}}</li>
+                </div>
             </ul>
 
         </div>

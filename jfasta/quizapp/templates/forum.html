@@ -34,12 +34,13 @@
                     <a href="{% url 'forum4' %}"><button id="tab5" class="tablinks"></button></a>
                     <label for="tab5">Your Posts History</label>
 
-
+                    <a href="{% url 'makepost' %}"><button id="tab6" class="tablinks"></button></a>
+                    <label for="tab6"> Make New Post</label>
         <!--Posts -->
         <div class="tabcontent" id="rposts">
             {% for post in page_obj %}
             <div class= "card bg mt-4">
-                    <div class="postin" style="padding: 10px; border: solid white;">
+                    <div class="postin" style="padding: 20px; border: solid white;">
                         <a href="{% url 'viewpost' post.id %}">
                         <h1 class="card-title  mt-3 ">{{ post.title }}</h1></a>
                         <hr class="p-0 m-0">
@@ -51,7 +52,7 @@
                     {% endfor %}
             </div>
 
-            <div class="pagination">
+            <div class="pagination" style="color:aliceblue;">
                 <span class="step-links">
                     {% if page_obj.has_previous %}
                     <a href="?page=1">&laquo; first</a>

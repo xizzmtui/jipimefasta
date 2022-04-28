@@ -11,12 +11,13 @@
         </div>
 
         {% for note in notesy %}
-        <div class="notes-section" style="background-color: white; border: solid black; height: 20vh;">
+        <div class="notes-section" style="background-color: #003057; border: solid white; height: auto; color:aliceblue; padding: 10px; margin: 10px;">
             <ul>
                 <li><a href="{% url 'notes' note.id %}">{{note.category}}</a></li>
-                <li>{{note.level}}</li>
-                <li>{{note.date}}</li>
+                <li>Form {{note.level}}</li>
+                <li>Date Marked: {{note.date}}</li>
             </ul>
+            </div>
         {% endfor %}
-        </div>
+        
 {% endblock%}

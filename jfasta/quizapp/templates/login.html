@@ -1,39 +1,31 @@
 {% extends "base.html" %} {% block content %} {% load crispy_forms_tags %}
 
 <!--Login-->
-<!-- <div class="row">
-  <div class="col-md-4"></div> -->
 
-  <!-- <div class="col-md-4">
-    <div class="card mt-40"> -->
+<div style="background-color: #003057; border: solid white; height: auto; width:auto; color:aliceblue; padding: 10px; margin: 10px;">
+
       <div class="card-body">
-        <div class="card-title">
-          <h1 class="text-center">Login to your account</h1>
-        </div>
+          <div class="card-title">
+            <h1 class="text-center">Login to your account</h1>
+          </div>
 
-        <div class="container">
-    
-          <form method="POST">
-            {% csrf_token %} {{ login_form|crispy }}
-            <div class="text-center mb-5">
-            <button class="btn btn-primary " type="submit">Login</button>
-            </div>
-          </form>
-          
-        </div>
+          <div class="container">
+            <form method="POST">
+              {% csrf_token %} {{ login_form|crispy }}
+              <div class="text-center mb-5">
+              <button class="btn btn-primary " type="submit">Login</button>
+              </div>
+            </form>
+          </div>
       
 
-        <p class="text-center">
-          Don't have an account? <a href="/register" style="color:blue;">Create an account</a>.
-        </p>
+            <p class="text-center">
+              Don't have an account? <a href="/register" style="color:blue;">Create an account</a>.
+            </p>
 
-        <p class="text-center">Forgot password?<a href="{% url 'password_reset' %}">Reset it</a> </p>
-       
+            <p class="text-center">Forgot password?<a href="{% url 'password_reset' %}">Reset it</a> </p>
       </div>
-    <!-- </div>
-  </div> -->
-
-  <!-- <div class="col-md-4"></div> -->
+    
 </div>
 </br>
 
