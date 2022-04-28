@@ -341,7 +341,7 @@ def normal(request):
         f.write("let questions = "+str(quiz))
         f.close()
         questions = {'questions': quiz}
-        return render(request, 'test.html', questions)
+        return render(request, 'normal.html', questions)
 
 
 @login_required
