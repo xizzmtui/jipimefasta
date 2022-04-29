@@ -55,5 +55,6 @@ urlpatterns = [
     path('test/', views.test, name='test'),
     path('userprofile/<int:id>', views.userprofile, name='userprofile'),
     path('makequestion/', views.make_questions, name='makequestion'),
+    path('userposts/<int:id>', views.userposts, name='userposts'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

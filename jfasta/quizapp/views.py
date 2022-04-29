@@ -58,7 +58,7 @@ def userprofile(request, id):
     first_name = yuza['first_name']
     last_name = yuza['last_name']
     date_joined = yuza['date_joined']
-    yuza1 = {'username': username, 'first_name': first_name, 'last_name': last_name, 'date_joined':date_joined}
+    yuza1 = {'username': username, 'first_name': first_name, 'last_name': last_name, 'date_joined':date_joined, 'id':id}
     return render(request, 'userprofile.html', yuza1)
 
 def index(request):
@@ -140,6 +140,13 @@ def forum_4(request):
     page_obj = paginator.get_page(page_number)
     return render(request, 'forum.html', {'page_obj': page_obj})
 
+@login_required
+def userposts(request, id):
+    post_list = Post.objects.filter(usr=id).order_by('-date')
+    paginator = Paginator(post_list, 10) # Show 3 posts per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'forum.html', {'page_obj': page_obj})
 
 @login_required
 def profile_update(request):
@@ -235,6 +242,7 @@ def viewpost(request, id):
     posts = Post.objects.filter(id=id).values()
     post = posts[0]
     title = post['title']
+    img = post['img']
     usr = post['usr_id']
     content = post['content']
     share = post['share']
@@ -245,7 +253,7 @@ def viewpost(request, id):
     page_obj = Reply.objects.filter(pid=id)
 
     
-    wall = {'id':post_id, 'title':title, 'content':content, 'usr':usr, 'share':share, 'date':date, 'category':category, 'page_obj':page_obj}
+    wall = {'id':post_id, 'title':title, 'content':content, 'usr':usr, 'share':share, 'date':date, 'category':category,'img':img, 'page_obj':page_obj}
     print(wall)
     return render(request, 'viewpost.html', wall)
 
@@ -289,12 +297,87 @@ def selectquiz(request):
 
 @login_required
 def h2h(request):
-    return render(request, 'h2h.html')
+        category = request.session['subject']
+        level = request.session['level']
+        if level == 'Form 1' :
+            levels = 1
+        elif level == 'Form 2':
+            levels = 2
+        elif level == 'Form 3':
+            levels = 3
+        elif level == 'Form 4':
+            levels = 4
+        elif level == 'Form 5':
+            levels = 5
+        else:
+            levels = 6
+
+        quest = Question.objects.filter(category=category, level=levels)
+        
+        quiz = []
+        i = 1
+        for quez in quest:
+            options = Question_Options.objects.filter(qid=quez)
+            optionz = []
+            for option in options:
+                optionz.append(option.option)
+            q_dict = {
+                "numb": i,
+                "question": quez.description,
+                "answer": quez.answer,
+                "options":optionz
+            }
+
+            quiz.append(q_dict)
+            print(quiz)
+            i+=1
+        f = open("quizapp/static/js/test.js", "w")
+        f.write("let questions = "+str(quiz))
+        f.close()
+        return render(request, 'h2h.html')
 
 
 @login_required
 def survival(request):
-    return render(request, 'survival.html')
+
+        category = request.session['subject']
+        level = request.session['level']
+        if level == 'Form 1' :
+            levels = 1
+        elif level == 'Form 2':
+            levels = 2
+        elif level == 'Form 3':
+            levels = 3
+        elif level == 'Form 4':
+            levels = 4
+        elif level == 'Form 5':
+            levels = 5
+        else:
+            levels = 6
+
+        quest = Question.objects.filter(category=category, level=levels)
+        
+        quiz = []
+        i = 1
+        for quez in quest:
+            options = Question_Options.objects.filter(qid=quez)
+            optionz = []
+            for option in options:
+                optionz.append(option.option)
+            q_dict = {
+                "numb": i,
+                "question": quez.description,
+                "answer": quez.answer,
+                "options":optionz
+            }
+
+            quiz.append(q_dict)
+            print(quiz)
+            i+=1
+        f = open("quizapp/static/js/test.js", "w")
+        f.write("let questions = "+str(quiz))
+        f.close()
+        return render(request, 'survival.html')
 
 
 @login_required
@@ -340,8 +423,7 @@ def normal(request):
         f = open("quizapp/static/js/test.js", "w")
         f.write("let questions = "+str(quiz))
         f.close()
-        questions = {'questions': quiz}
-        return render(request, 'normal.html', questions)
+        return render(request, 'normal.html')
 
 
 @login_required

@@ -15,6 +15,7 @@
       <p>First Name : {{first_name}} </p>
       <p>Last Name : {{last_name}} </p>
       <p>Date Joined : {{date_joined}} </p>
+      <div><a href="{% url 'userposts' id %}"><button style="background-color:#003057;border:solid white;color: aliceblue;">View {{username}}'s Posts</button></a></div>
 </div>
   
 {% endblock %}
