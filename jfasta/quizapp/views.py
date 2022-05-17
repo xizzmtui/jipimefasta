@@ -506,7 +506,8 @@ def make_questions(request):
         return render(request, 'makequestion.html')
     return render(request, 'makequestion.html')
 
-
+def report(request):
+    return render(request, 'report.html')
 
 
 # API views

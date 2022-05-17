@@ -77,7 +77,7 @@ class Feedback(models.Model):
     img = models.ImageField(blank=True, null=True)
 
     def __str__(self):
-        return self.usr
+        return self.str(usr.username)
 
 
 class ContentSuggested(models.Model):
