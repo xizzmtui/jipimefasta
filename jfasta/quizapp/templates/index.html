@@ -13,7 +13,11 @@
                     <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Jipime Fasta</span></h2>
                     <p class="animate__animated animate__fadeInUp">Online platform to connect secondary students across Tanzania.
                     </p>
-                    <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'selectquiz' %}" class="btn-get-started animate__animated animate__fadeInUp">Quick Quiz</a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn-get-started animate__animated animate__fadeInUp">Join Now</a>
+                    {% endif %}
                 </div>
             </div>
     
@@ -22,17 +26,25 @@
                 <div class="carousel-container">
                     <h2 class="animate__animated animate__fadeInDown">Here at Jipime Fasta</h2>
                     <p class="animate__animated animate__fadeInUp">You will get gamified and interactive quizzes, connection and thoughts from others through our improved students forum. Last but not least you can get your notes summary as well </p>
-                    <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
+
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'forum' %}" class="btn-get-started animate__animated animate__fadeInUp">Check Out the Forum</a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn-get-started animate__animated animate__fadeInUp">Join Now</a>
+                    
+                    {% endif %}
                 </div>
             </div>
     
             <!-- Slide 3 -->
             <div class="carousel-item">
                 <div class="carousel-container">
-                    <h2 class="animate__animated animate__fadeInDown">Jipime Fasta Android Add</h2>
+                    <h2 class="animate__animated animate__fadeInDown">Jipime Fasta Android App</h2>
                     <p class="animate__animated animate__fadeInUp"> You can also download our app in google play store.
                     </p>
-                    <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
+
+
+                    <a href="#" class="btn-get-started animate__animated animate__fadeInUp">Download Now</a>
                 </div>
             </div>
     
@@ -57,36 +69,33 @@
                     <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
                         <div class="icon-box icon-box-pink">
                             <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
-                                excepturi sint occaecati cupiditate non provident</p>
+                            <h4 class="title"><a href="">Interactive Quiz App</a></h4>
+                            <p class="description">
+                                Learn and build more confidence with questions from different subjects through our interactive and gamified quiz app</p>
                         </div>
                     </div>
     
                     <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                         <div class="icon-box icon-box-cyan">
                             <div class="icon"><i class="bx bx-file"></i></div>
-                            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                                dolore eu fugiat nulla pariatur</p>
+                            <h4 class="title"><a href="">Students Forum</a></h4>
+                            <p class="description">Share your knowledge, Ask questions and connect with other students through our improved Students Forum</p>
                         </div>
                     </div>
     
                     <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                         <div class="icon-box icon-box-green">
                             <div class="icon"><i class="bx bx-tachometer"></i></div>
-                            <h4 class="title"><a href="">Magni Dolores</a></h4>
-                            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                deserunt mollit anim id est laborum</p>
+                            <h4 class="title"><a href="">Notes App</a></h4>
+                            <p class="description">Get summary for notes of your choice, without forgetting the ability to rate your favorites</p>
                         </div>
                     </div>
     
                     <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                         <div class="icon-box icon-box-blue">
                             <div class="icon"><i class="bx bx-world"></i></div>
-                            <h4 class="title"><a href="">Nemo Enim</a></h4>
-                            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                praesentium voluptatum deleniti atque</p>
+                            <h4 class="title"><a href="">News Section</a></h4>
+                            <p class="description">Receive directly news from education governing body</p>
                         </div>
                     </div>
     
@@ -101,7 +110,7 @@
     
                 <div class="row">
                     <div class="col-lg-6 video-box">
-                        <img src="assets/img/why-us.jpg" class="img-fluid" alt="">
+                        <img src="{% static 'img/why-us.jpg' %}" class="img-fluid" alt="">
                         <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4"
                             data-vbtype="video" data-autoplay="true"></a>
                     </div>
@@ -109,17 +118,15 @@
                     <div class="col-lg-6 d-flex flex-column justify-content-center p-5">
     
                         <div class="icon-box">
-                            <div class="icon"><i class="bx bx-fingerprint"></i></div>
-                            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
-                                excepturi sint occaecati cupiditate non provident</p>
+                            <div class="icon"><i class="bx bxl-youtube"></i></div>
+                            <h4 class="title"><a href="">Watch our Introduction Video</a></h4>
+                            <p class="description">Here we explain why we might be the best fit for you</p>
                         </div>
     
                         <div class="icon-box">
-                            <div class="icon"><i class="bx bx-gift"></i></div>
-                            <h4 class="title"><a href="">Nemo Enim</a></h4>
-                            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                praesentium voluptatum deleniti atque</p>
+                            <div class="icon"><i class="bx bxl-youtube"></i></div>
+                            <h4 class="title"><a href="">Subscribe To Our Youtube Channel</a></h4>
+                            <p class="description">And don't forget to activate notifications to get informed as soon as new content is uploaded</p>
                         </div>
     
                     </div>
@@ -134,83 +141,69 @@
     
                 <div class="section-title">
                     <h2>Features</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                        consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                        fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    <p>Further Breakdown on what our system does.</p>
                 </div>
     
                 <div class="row" data-aos="fade-up">
                     <div class="col-md-5">
-                        <img src="assets/img/features-1.svg" class="img-fluid" alt="">
+                        <img src="{% static 'img/features-1.svg' %}" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-7 pt-4">
-                        <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                        <h3>Try our interactive quiz app</h3>
                         <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua.
+                            More effective way of learning. A quiz app made with gamification element will help you to love more of what you do accademically
                         </p>
                         <ul>
-                            <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                            <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                            <li><i class="bi bi-check"></i> Try our head to head quiz. Challenge others</li>
+                            <li><i class="bi bi-check"></i> Try our survival quiz mode. See how many you can get right in a row</li>
+                            <li><i class="bi bi-check"></i> Try our Timed quiz mode. Give yourself a test with time limitation</li>
                         </ul>
                     </div>
                 </div>
     
                 <div class="row" data-aos="fade-up">
                     <div class="col-md-5 order-1 order-md-2">
-                        <img src="assets/img/features-2.svg" class="img-fluid" alt="">
+                        <img src="{% static 'img/features-2.svg' %}" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-7 pt-5 order-2 order-md-1">
-                        <h3>Corporis temporibus maiores provident</h3>
-                        <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua.
-                        </p>
-                        <p>
-                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                            in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in
-                            culpa qui officia deserunt mollit anim id est laborum
-                        </p>
+                        <h3>Notes App</h3>
+                        <p>Easily get summary of any notes of your chice. </p>
+                        <ul>
+                            <li><i class="bi bi-check"></i> Download these notes for offline use.</li>
+                            <li><i class="bi bi-check"></i> Set your Favorites Notes to keep track of them.</li>
+
+                        </ul>
                     </div>
                 </div>
     
                 <div class="row" data-aos="fade-up">
                     <div class="col-md-5">
-                        <img src="assets/img/features-3.svg" class="img-fluid" alt="">
+                        <img src="{% static 'img/features-3.svg' %}" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-7 pt-5">
-                        <h3>Sunt consequatur ad ut est nulla consectetur reiciendis animi voluptas</h3>
-                        <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit
-                            aut quia voluptatem hic voluptas dolor doloremque.</p>
+                        <h3>Students Forum</h3>
+                        <p>Interact with your fellow students across the country. </p>
                         <ul>
-                            <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                            <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                            <li><i class="bi bi-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.</li>
+                            <li><i class="bi bi-check"></i> Ask Questions.</li>
+                            <li><i class="bi bi-check"></i> Share Knowledge and Experience.</li>
+                            <li><i class="bi bi-check"></i> Discover New Information.</li>
+                            <li><i class="bi bi-check"></i> Make Friends.</li>
+                            <li><i class="bi bi-check"></i> And Remember to be polite!</li>
                         </ul>
                     </div>
                 </div>
     
                 <div class="row" data-aos="fade-up">
                     <div class="col-md-5 order-1 order-md-2">
-                        <img src="assets/img/features-4.svg" class="img-fluid" alt="">
+                        <img src="{% static 'img/features-4.svg' %}" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-7 pt-5 order-2 order-md-1">
-                        <h3>Quas et necessitatibus eaque impedit ipsum animi consequatur incidunt in</h3>
+                        <h3>Coming soon Timetable App</h3>
                         <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua.
+                            This will allow you to create your timetable through the system.
                         </p>
                         <p>
-                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                            in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in
-                            culpa qui officia deserunt mollit anim id est laborum
+                            Jipime Fasta will then remind you based on your time-table
                         </p>
                     </div>
                 </div>

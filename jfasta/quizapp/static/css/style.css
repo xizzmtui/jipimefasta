@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   background: #1e4356;
 }
 #header.header-transparent {
-  background: none;
+  background: rgba(30, 67, 86, 0.8);;
 }
 #header.header-scrolled {
   background: rgba(30, 67, 86, 0.8);

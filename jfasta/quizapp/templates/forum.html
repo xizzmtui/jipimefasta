@@ -2,81 +2,205 @@
 {% load static %}
 {% block content %}
 
-<section class="header-descriptin329">
-    <div class="container">
-        <h3>Explore the Students Forum</h3>
-        <ol class="breadcrumb breadcrumb839">
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li class="active">Students Forum</li>
-        </ol>
-    </div>
-</section>
+
 <!-- ======content section/body=====-->
-<section class="main-content920">
-    <div class="container">
-        <!-- <div class="row"> -->
-            <div class="tab">
-                <div id="main">
-                    <a href="{% url 'forum' %}"><button id="tab1" class="tablinks"  ></button></a>
-                    <label for="tab1">Recent Posts</label>
-
-                    <a href="{% url 'forum1' %}"><button id="tab2" class="tablinks" ></button></a>
-                    <label for="tab2">Most Replies</label>
 
 
-                    <a href="{% url 'forum2' %}"><button id="tab3" class="tablinks" ></button></a>
-                    <label for="tab3">Recently Replied to</label>
+<main id="main">
 
-                    <a href="{% url 'forum3' %}"><button id="tab4" class="tablinks"></button></a>
-                    <label for="tab4">No Reply Yet</label>
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
 
-
-                    <a href="{% url 'forum4' %}"><button id="tab5" class="tablinks"></button></a>
-                    <label for="tab5">Your Posts History</label>
-
-                    <a href="{% url 'makepost' %}"><button id="tab6" class="tablinks"></button></a>
-                    <label for="tab6"> Make New Post</label>
-        <!--Posts -->
-        <div class="tabcontent" id="rposts">
-            {% for post in page_obj %}
-            <div class= "card bg mt-4">
-                    <div class="postin" style="padding: 20px; border: solid white;">
-                        <a href="{% url 'viewpost' post.id %}">
-                        <h1 class="card-title  mt-3 ">{{ post.title }}</h1></a>
-                        <hr class="p-0 m-0">
-                        <a href="{% url 'userprofile' post.usr.id %}"><p class="postuser" style="color:aliceblue;">{{post.usr.username}}</p></a>
-                        <p  class=" m-5 p-5" style="color:aliceblue">{{ post.content }}</p>
-                        <p style="color:aliceblue">{{post.share}}</p>
-                        <hr>
-                    </div>
-                    {% endfor %}
+            <div class="d-flex justify-content-between align-items-center">
+                <h3>Explore the Students Forum</h3>
+                <ol class="breadcrumb breadcrumb839">
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li class="active">Students Forum</li>
+                </ol>
             </div>
 
-            <div class="pagination" style="color:aliceblue;">
-                <span class="step-links">
-                    {% if page_obj.has_previous %}
-                    <a href="?page=1">&laquo; first</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-                    {% endif %}
-            
-                    <span class="current">
-                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                    </span>
-            
-                    {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">next</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-                    {% endif %}
-                </span>
-            </div>
         </div>
-        <!-- End of Posts  -->
+    </section><!-- End Blog Section -->
 
-       <div><a href="{% url 'makepost' %}"><button style="width:100%; height: 20%; background-color: #003057;color: aliceblue;border: solid white;">Make New Post</button></a></div>
-
-        </div>
+    <div class="tab">
+        <div id="main">
+            <a href="{% url 'forum' %}"><button id="tab1" class="tablinks"></button></a>
+            <label for="tab1">Recent Posts</label>
+    
+            <a href="{% url 'forum1' %}"><button id="tab2" class="tablinks"></button></a>
+            <label for="tab2">Most Replies</label>
+    
+    
+            <a href="{% url 'forum2' %}"><button id="tab3" class="tablinks"></button></a>
+            <label for="tab3">Recently Replied to</label>
+    
+            <a href="{% url 'forum3' %}"><button id="tab4" class="tablinks"></button></a>
+            <label for="tab4">No Reply Yet</label>
+    
+    
+            <a href="{% url 'forum4' %}"><button id="tab5" class="tablinks"></button></a>
+            <label for="tab5">Your Posts History</label>
+    
+            <a href="{% url 'makepost' %}"><button id="tab6" class="tablinks"></button></a>
+            <label for="tab6"> Make New Post</label>
         </div>
     </div>
-</section>
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-lg-8 entries">
+
+                    {% for post in page_obj %}
+                    <article class="entry">
+                        <div class="entry-img">
+                            <img src="{{post.img}}" alt="" class="img-fluid">
+                        </div>
+
+                        <h2 class="entry-title">
+                            <a href="{% url 'viewpost' post.id %}">{{post.title}}</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{% url 'userprofile' post.usr.id %}">{{post.usr.username}}</a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
+                                        href="blog-single.html"><time datetime="2020-01-01">{{post.date}}</time></a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a
+                                        href="blog-single.html">12 Comments</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="entry-content">
+                            <p>
+                                {{post.content}}
+                            </p>
+                            <div class="read-more">
+                                <a href="{% url 'viewpost' post.id %}">Read More</a>
+                            </div>
+                        </div>
+
+                    
+
+                    </article><!-- End blog entry -->
+                    {% endfor %}
+                    
+
+                    <!-- Pagination -->
+                <div class="blog-pagination">
+                                            
+                    <ul class="justify-content-center"> 
+                        {% if page_obj.has_previous %}
+                        <span>
+                        <a href="?page=1">&laquo;  first </a>
+                        <a href="?page={{ page_obj.previous_page_number }}"> previous </a>
+                        </span>
+                        {% endif %}
+
+                        <span class="current" style="margin-left: 5px; margin-right: 5px;">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                        </span>
+
+                        {% if page_obj.has_next %}
+                        <span>
+                        <a href="?page={{ page_obj.next_page_number }}"> next  </a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}"> last &raquo; </a>
+                        </span>
+                        {% endif %}
+                    </ul>
+                </div>
+                                    <!-- end of Pagination -->
+                </div><!-- End blog entries list -->
+
+                <div class="col-lg-4">
+
+                    <div class="sidebar">
+
+                        <h3 class="sidebar-title">Search</h3>
+                        <div class="sidebar-item search-form">
+                            <form action="">
+                                <input type="text">
+                                <button type="submit"><i class="bi bi-search"></i></button>
+                            </form>
+                        </div><!-- End sidebar search formn-->
+
+                        <h3 class="sidebar-title">Categories</h3>
+                        <div class="sidebar-item categories">
+                            <ul>
+                                <li><a href="#">General <span>(25)</span></a></li>
+                                <li><a href="#">Lifestyle <span>(12)</span></a></li>
+                                <li><a href="#">Travel <span>(5)</span></a></li>
+                                <li><a href="#">Design <span>(22)</span></a></li>
+                                <li><a href="#">Creative <span>(8)</span></a></li>
+                                <li><a href="#">Educaion <span>(14)</span></a></li>
+                            </ul>
+                        </div><!-- End sidebar categories-->
+
+                        <h3 class="sidebar-title">Recent Posts</h3>
+                        <div class="sidebar-item recent-posts">
+                            <div class="post-item clearfix">
+                                <img src="{% static 'img/blog/blog-recent-1.jpg' %}" alt="">
+                                <h4><a href="blog-single.html">Nihil blanditiis at in nihil autem</a></h4>
+                                <time datetime="2020-01-01">Jan 1, 2020</time>
+                            </div>
+
+                            <div class="post-item clearfix">
+                                <img src="{% static 'img/blog/blog-recent-2.jpg' %}" alt="">
+                                <h4><a href="blog-single.html">Quidem autem et impedit</a></h4>
+                                <time datetime="2020-01-01">Jan 1, 2020</time>
+                            </div>
+
+                            <div class="post-item clearfix">
+                                <img src="{% static 'img/blog/blog-recent-3.jpg' %}" alt="">
+                                <h4><a href="blog-single.html">Id quia et et ut maxime similique occaecati ut</a></h4>
+                                <time datetime="2020-01-01">Jan 1, 2020</time>
+                            </div>
+
+                            <div class="post-item clearfix">
+                                <img src="{% static 'img/blog/blog-recent-4.jpg' %}" alt="">
+                                <h4><a href="blog-single.html">Laborum corporis quo dara net para</a></h4>
+                                <time datetime="2020-01-01">Jan 1, 2020</time>
+                            </div>
+
+                            <div class="post-item clearfix">
+                                <img src="{% static 'img/blog/blog-recent-5.jpg' %}" alt="">
+                                <h4><a href="blog-single.html">Et dolores corrupti quae illo quod dolor</a></h4>
+                                <time datetime="2020-01-01">Jan 1, 2020</time>
+                            </div>
+
+                        </div><!-- End sidebar recent posts-->
+
+                        <h3 class="sidebar-title">Tags</h3>
+                        <div class="sidebar-item tags">
+                            <ul>
+                                <li><a href="#">App</a></li>
+                                <li><a href="#">IT</a></li>
+                                <li><a href="#">Business</a></li>
+                                <li><a href="#">Mac</a></li>
+                                <li><a href="#">Design</a></li>
+                                <li><a href="#">Office</a></li>
+                                <li><a href="#">Creative</a></li>
+                                <li><a href="#">Studio</a></li>
+                                <li><a href="#">Smart</a></li>
+                                <li><a href="#">Tips</a></li>
+                                <li><a href="#">Marketing</a></li>
+                            </ul>
+                        </div><!-- End sidebar tags-->
+
+                    </div><!-- End sidebar -->
+
+                </div><!-- End blog sidebar -->
+
+            </div>
+
+        </div>
+    </section><!-- End Blog Section -->
+
+</main><!-- End #main -->
+
 
 {% endblock %}
