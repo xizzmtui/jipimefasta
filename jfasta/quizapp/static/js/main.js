@@ -1,6 +1,6 @@
 /**
-* Template Name: Presento - v3.7.0
-* Template URL: https://bootstrapmade.com/presento-bootstrap-corporate-template/
+* Template Name: Moderna - v4.8.0
+* Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
@@ -41,26 +41,6 @@
   }
 
   /**
-   * Navbar links active state on scroll
-   */
-  let navbarlinks = select('#navbar .scrollto', true)
-  const navbarlinksActive = () => {
-    let position = window.scrollY + 200
-    navbarlinks.forEach(navbarlink => {
-      if (!navbarlink.hash) return
-      let section = select(navbarlink.hash)
-      if (!section) return
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navbarlink.classList.add('active')
-      } else {
-        navbarlink.classList.remove('active')
-      }
-    })
-  }
-  window.addEventListener('load', navbarlinksActive)
-  onscroll(document, navbarlinksActive)
-
-  /**
    * Scrolls to an element with header offset
    */
   const scrollto = (el) => {
@@ -68,7 +48,7 @@
     let offset = header.offsetHeight
 
     if (!header.classList.contains('header-scrolled')) {
-      offset -= 16
+      offset -= 20
     }
 
     let elementPos = select(el).offsetTop
@@ -148,48 +128,36 @@
   }, true)
 
   /**
-   * Scroll with ofset on page load with hash links in the url
+   * Skills animation
    */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      if (select(window.location.hash)) {
-        scrollto(window.location.hash)
+  let skilsContent = select('.skills-content');
+  if (skilsContent) {
+    new Waypoint({
+      element: skilsContent,
+      offset: '80%',
+      handler: function(direction) {
+        let progress = select('.progress .progress-bar', true);
+        progress.forEach((el) => {
+          el.style.width = el.getAttribute('aria-valuenow') + '%'
+        });
       }
-    }
-  });
+    })
+  }
+
   /**
-   * Clients Slider
+   * Testimonials slider
    */
-  new Swiper('.clients-slider', {
+  new Swiper('.testimonials-carousel', {
     speed: 400,
     loop: true,
     autoplay: {
       delay: 5000,
       disableOnInteraction: false
     },
-    slidesPerView: 'auto',
     pagination: {
       el: '.swiper-pagination',
       type: 'bullets',
       clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 2,
-        spaceBetween: 40
-      },
-      480: {
-        slidesPerView: 3,
-        spaceBetween: 60
-      },
-      640: {
-        slidesPerView: 4,
-        spaceBetween: 80
-      },
-      992: {
-        slidesPerView: 6,
-        spaceBetween: 120
-      }
     }
   });
 
@@ -200,7 +168,7 @@
     let portfolioContainer = select('.portfolio-container');
     if (portfolioContainer) {
       let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item',
+        itemSelector: '.portfolio-wrap',
         layoutMode: 'fitRows'
       });
 
@@ -236,7 +204,6 @@
    */
   new Swiper('.portfolio-details-slider', {
     speed: 400,
-    loop: true,
     autoplay: {
       delay: 5000,
       disableOnInteraction: false
@@ -245,35 +212,6 @@
       el: '.swiper-pagination',
       type: 'bullets',
       clickable: true
-    }
-  });
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
     }
   });
 
@@ -283,10 +221,10 @@
   window.addEventListener('load', () => {
     AOS.init({
       duration: 1000,
-      easing: 'ease-in-out',
+      easing: "ease-in-out",
       once: true,
       mirror: false
-    })
+    });
   });
 
 })()

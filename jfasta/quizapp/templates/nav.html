@@ -7,15 +7,18 @@
 </ul>
 {% endif %}
 
-    <header id="header" class="fixed-top d-flex align-items-center">
-        <div class="container d-flex align-items-center">
-            <h1 class="logo me-auto"><a href="{% url 'index' %}">JipimeFasta<span>.</span></a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt=""></a>-->
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <h1 class="text-light"><a href="{% url 'index'%}"><span>JipimeFasta</span></a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
     
-            <nav id="navbar" class="navbar order-last order-lg-0">
+            <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="{% url 'index' %}">Home</a></li>
+                    <li><a class="active " href="{% url 'index' %}">Home</a></li>
                     <li class="dropdown"><a href="#"><span>To Student's Forum</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="{% url 'forum' %}">Students Forum</a></li>
@@ -34,18 +37,18 @@
                             <li><a href="{% url 'favnotes' %}">Favorite Notes</a></li>
                         </ul>
                     </li>
-                    <li><a class="nav-link scrollto" href="{% url 'leaderboard' %}">Leaderboards </a>
+                    <li><a  href="{% url 'leaderboard' %}">Leaderboards </a>
                     </li>
-                    <li><a class="nav-link scrollto" href="{% url 'feedback' %}">Contact Us</a></li>
+                    <li><a  href="{% url 'feedback' %}">Contact Us</a></li>
     
     
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        <a  href="{% url 'logout' %}">Logout</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
+                        <a  href="/login">Login</a>
                     </li>
     
                     {% endif %}
@@ -58,4 +61,4 @@
     </header><!-- End Header -->
 </div>
 
-{% comment %} asfbskbsanasdna {% endcomment %}
+
