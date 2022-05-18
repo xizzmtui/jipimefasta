@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content %}
+<main id="main">
     <section class="breadcrumbs">
         <div class="container">
     
@@ -8,7 +9,7 @@
                 <h3>Make Your Post in Students Forum</h3>
                 <ol class="breadcrumb breadcrumb839">
                     <li><a href="{% url 'forum' %}">Students Forum</a></li>
-                    <li class="active">Make New Post/li>
+                    <li class="active">Make New Post</li>
                 </ol>
             </div>
     
@@ -106,6 +107,8 @@
         </div>
         <br />
     </section>
+
+</main>
 
 
 

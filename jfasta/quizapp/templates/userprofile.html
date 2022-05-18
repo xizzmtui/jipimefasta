@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content %}
+<main id="main">
 <section class="breadcrumbs">
     <div class="container">
 
@@ -21,5 +22,5 @@
       <p>Date Joined : {{date_joined}} </p>
       <div><a href="{% url 'userposts' id %}"><button style="background-color:#003057;border:solid white;color: aliceblue;">View {{username}}'s Posts</button></a></div>
 </div>
-  
+</main>
 {% endblock %}

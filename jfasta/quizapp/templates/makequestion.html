@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h1>Make Question</h1>
+<main id="main">
 <section class="header-descriptin329">
     <div class="container">
         <h3>Add Questions</h3>
@@ -80,12 +80,7 @@
 <br>
 </div>
 
-<p>description = models.TextField()
-answer = models.TextField()
-category = models.CharField(max_length=15)
-date = models.DateTimeField(default=datetime.now())
-level = models.IntegerField(default=4)
-answer_description = models.TextField(null=True)</p>
+</main>
 
 
 {% endblock %}

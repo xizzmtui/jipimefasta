@@ -2,7 +2,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
-
+<main id="main">
 <section class="breadcrumbs">
     <div class="container">
 
@@ -39,4 +39,5 @@
     <span style="color:white;">Change password? </span>
     <a href="{% url 'password_reset' %}" style="color: black;">Reset it</a>
 </div>
+</main>
 {% endblock %}
