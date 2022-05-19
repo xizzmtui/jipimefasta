@@ -110,3 +110,16 @@ class NotesUser(models.Model):
 
     def __str__(self):
         return self.yuza.username
+
+
+
+class ReplyReplies(models.Model):
+    rid = models.ForeignKey(Reply, on_delete=models.CASCADE)
+    usr = models.ForeignKey(
+        User, on_delete=models.DO_NOTHING)  # id of the replier
+    date = models.DateTimeField(default=datetime.now())
+    content = models.TextField(default=None)
+
+    def __str__(self):
+        return self.usr.username + self.rid.content
+
