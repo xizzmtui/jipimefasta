@@ -98,6 +98,7 @@ def forum(request):
     paginator = Paginator(post_list, 10) # Show 3 posts per page.
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+
     return render(request, 'forum.html', {'page_obj': page_obj})
 
 @login_required
@@ -251,9 +252,10 @@ def viewpost(request, id):
     post_id = post['id']
 
     page_obj = Reply.objects.filter(pid=id)
+    comment_count = len(page_obj)
 
-    
-    wall = {'id':post_id, 'title':title, 'content':content, 'usr':usr, 'share':share, 'date':date, 'category':category,'img':img, 'page_obj':page_obj}
+    wall = {'id': post_id, 'title': title, 'content': content, 'usr': usr, 'share': share, 'date': date,
+            'category': category, 'img': img, 'page_obj': page_obj, 'comment_count': comment_count}
     print(wall)
     return render(request, 'viewpost.html', wall)
 

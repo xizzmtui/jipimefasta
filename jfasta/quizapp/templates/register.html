@@ -1,39 +1,27 @@
 {% extends "base.html" %} {% block content %} {% load crispy_forms_tags %}
-
+<main id="main">
 <!--Register-->
-<div style="background-color: #003057; border: solid white; height: auto; width: auto; color:aliceblue; padding: 10px; margin: 10px;">
-<div class="row">
-  
 
-  <div class="col-md-8">
-   
-    <div class="card mt-5 mb-5">
-      <div class="card-body">
-        <div class="card-title text-center">
+<div class="row" style="margin:100px;" data-aos="fade-up" >
+  <div class="col-md-3"></div>
+
+  <div class="col-md-6">
+        <div class="text-center">
           <h1>Register</h1>
         </div>
-        <div class="container">
-          <div class="container">
             <div class="container">
-        <form method="POST">
-          {% csrf_token %} {{ register_form|crispy }}
-          <button class="btn btn-primary" type="submit">Register</button>
-        </form>
-      </div>
-      </div>
-    </div>
+              <form method="POST">
+                {% csrf_token %} {{ register_form|crispy }}
+                <button class="btn btn-primary" type="submit">Register</button>
+              </form>
+            </div>
+          
 
         <p class="text-center">
           If you already have an account, <a href="/login">login</a> instead.
         </p>
       </div>
     </div>
-  
- 
-</div>
-
-  
-</div>
-</br>
-</div>
+    <div class="col-md-4"></div>
+</main>
 {% endblock %}

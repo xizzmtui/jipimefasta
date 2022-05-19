@@ -15,11 +15,11 @@
 
     </div>
 </section>
-<div class="userprof" style="background-color: #003057; border: solid white; height: 50vh; color:aliceblue; padding: 10px; margin: 10px;">
-      <p>{{username}} Profile</p> <hr>
+<div class="userprof" style=" height: 50vh; color:black; padding: 10px; margin: 10px;" data-aos="fade-up">
+      <p><i class="bi bi-person"></i> {{username}}'s Profile</p> <hr>
       <p>First Name : {{first_name}} </p>
       <p>Last Name : {{last_name}} </p>
-      <p>Date Joined : {{date_joined}} </p>
+      <p><i class="bi bi-clock"></i> Date Joined : {{date_joined}} </p>
       <div><a href="{% url 'userposts' id %}"><button style="background-color:#003057;border:solid white;color: aliceblue;">View {{username}}'s Posts</button></a></div>
 </div>
 </main>

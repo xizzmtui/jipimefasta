@@ -1,34 +1,34 @@
 {% extends "base.html" %} {% block content %} {% load crispy_forms_tags %}
 
 <!--Login-->
-
-<div style="background-color: #003057; border: solid white; height: auto; width:auto; color:aliceblue; padding: 10px; margin: 10px;">
+<main id="main">
+<div style="margin-top: 100px;">
 
       <div class="card-body">
           <div class="card-title">
-            <h1 class="text-center">Login to your account</h1>
+            <h3 class="text-center" data-aos="fade-up">Login to your account</h3>
           </div>
 
-          <div class="container">
-            <form method="POST">
+          <div class="container col-md-6" data-aos="fade-up">
+            <form method="POST" class="form-control" style="padding: 30px; margin:10px;">
               {% csrf_token %} {{ login_form|crispy }}
-              <div class="text-center mb-5">
+              <div class="text-center mb-5" style="padding: 10px;">
               <button class="btn btn-primary " type="submit">Login</button>
               </div>
             </form>
           </div>
       
 
-            <p class="text-center">
+            <p class="text-center" data-aos="fade-up">
               Don't have an account? <a href="/register" style="color:grey;">Create an account</a>.
             </p>
 
-            <p class="text-center">Forgot password?<a href="{% url 'password_reset' %}"style="color:grey;">Reset it</a> </p>
+            <p class="text-center" data-aos="fade-up">Forgot password?<a href="{% url 'password_reset' %}"style="color:grey;">Reset it</a> </p>
       </div>
     
 </div>
 </br>
 
 
-
+</main>
 {% endblock %}

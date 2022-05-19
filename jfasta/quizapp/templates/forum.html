@@ -23,34 +23,35 @@
         </div>
     </section><!-- End Blog Section -->
 
-    <div class="tab">
-        <div id="main">
-            <a href="{% url 'forum' %}"><button id="tab1" class="tablinks"></button></a>
-            <label for="tab1">Recent Posts</label>
-    
-            <a href="{% url 'forum1' %}"><button id="tab2" class="tablinks"></button></a>
-            <label for="tab2">Most Replies</label>
-    
-    
-            <a href="{% url 'forum2' %}"><button id="tab3" class="tablinks"></button></a>
-            <label for="tab3">Recently Replied to</label>
-    
-            <a href="{% url 'forum3' %}"><button id="tab4" class="tablinks"></button></a>
-            <label for="tab4">No Reply Yet</label>
-    
-    
-            <a href="{% url 'forum4' %}"><button id="tab5" class="tablinks"></button></a>
-            <label for="tab5">Your Posts History</label>
-    
-            <a href="{% url 'makepost' %}"><button id="tab6" class="tablinks"></button></a>
-            <label for="tab6"> Make New Post</label>
-        </div>
-    </div>
+
 
     <!-- ======= Blog Section ======= -->
     <section id="blog" class="blog">
         <div class="container" data-aos="fade-up">
+            <div class="row">
+                        <div class="tab">
+                            <div id="main">
+                                <div class="row">
+                                    
+                                        <div class="col-sm-2"><a href="{% url 'forum' %}" class="tab">
+                                            <h5>Recent Posts</h5>
+                                        </a></div>
+                                        <div class="col-sm-2"><a href="{% url 'forum1' %}">
+                                            <h5>Most Replies</h5>
+                                        </a></div>
+                                        <div class="col-sm-2"><a href="{% url 'forum3' %}">
+                                            <h5>No Reply</h5>
+                                        </a></div>
+                                        <div class="col-sm-2"><a href="{% url 'forum4' %}">
+                                            <h5>Your Posts</h5>
+                                        </a></div>
 
+                                </div>
+
+                            </div>
+                        </div>
+
+            </div>
             <div class="row">
 
                 <div class="col-lg-8 entries">
@@ -70,8 +71,7 @@
                                 <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{% url 'userprofile' post.usr.id %}">{{post.usr.username}}</a></li>
                                 <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
                                         href="blog-single.html"><time datetime="2020-01-01">{{post.date}}</time></a></li>
-                                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a
-                                        href="blog-single.html">12 Comments</a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
                             </ul>
                         </div>
 
