@@ -15,24 +15,26 @@
     
         </div>
     </section>
-    <section class="main-content920">
+    <section>
         <div class="container">
             <div class="row">
-                <div class="col-md-9">
-                    <div class="ask-question-input-part032">
+                <div class="col-md-2"></div>
+                <div class="col-md-6" data-aos ="fade-up">
+                    <div>
                         <h4>Your Post</h4>
                         <hr>
                         <form method="post" action="{% url 'makepost' %}">
                             {%  csrf_token %}
-                            <div class="question-title39">
-                                <span class="form-description433">Post-Title* </span><input type="text" name="title"
-                                    class="question-ttile32" placeholder="Whats On Your Mind?">
+                            <div class="form-group" style="margin:10px;padding:10px;">
+                                <span>Post-Title* </span>
+                                <input type="text" name="title"
+                                     class="form-control" placeholder="Whats On Your Mind?" required>
                             </div>
     
-                            <div class="categori49">
-                                <span class="form-description43305"  >Category* </span>
+                            <div class="form-group" style="margin:10px;padding:10px;">
+                                <span >Category </span>
                                 <label>
-                                    <input list="browsers" name="category" class="list-category53" /></label>
+                                    <input list="browsers" name="category" class="form-control" /></label>
                                 <datalist id="browsers">
                                     <option value="Kiswahili">
                                     <option value="English">
@@ -48,65 +50,26 @@
                                     <option value="Computer Studies">
                                 </datalist>
                             </div>
-                            <div class="button-group-addfile3239">
-                                <span class="form-description23993">Attactment*</span><input type="file" name="ufile"
-                                    class="question-ttile3226">
+                            <div class="form-group" style="margin:10px;padding:10px;">
+                                <span>Attactment</span><input type="file" name="ufile"
+                                    class="form-control">
     
                             </div>
-                            <div class="question-title39">
-                                <span class="form-description43313">Whats Up?* </span>
-                                <textarea class="question-details3112" name="content72"
-                                    placeholder="Here goes your post brief description ."></textarea>
+                            <div class="form-group" style="margin:10px;padding:10px;">
+                                <span>Whats Up?* </span>
+                                <textarea class="form-control" name="content72"
+                                    placeholder="Here goes your post brief description ." required></textarea>
                             </div>
-                            <div class="publish-button2389">
-                                <button type="submit" class="publis1291">Publish your Post</button>
+                            <div class="form-group" style="margin:10px;padding:10px;">
+                                <button type="submit" class="btn btn-primary">Publish your Post</button>
                             </div>
                         </form>
                     </div>
                 </div>
-                <!--                end of col-md-9 -->
-    
-                <!--           strart col-md-3 (side bar)-->
-                <aside class="col-md-3 sidebar97239">
-                    <div class="status-part3821">
-                        <h4>stats</h4>
-    
-                        <a href="{% url 'forum4' %}"><i class="fa fa-question-circle" aria-hidden="true"> Your Posts</i></a>
-                        <i class="fa fa-comment" aria-hidden="true"> Your Replies</i>
-                    </div>
-                    <div class="categori-part329">
-                        <h4>Category</h4>
-                        <ul>
-                            <li><a href="#">Kiswahili</a></li>
-                            <li><a href="#">General</a></li>
-                            <li><a href="#">Mathematics Questions</a></li>
-                            <li><a href="#">News</a></li>
-    
-                        </ul>
-                    </div>
-                    <!--          start tags part-->
-                    <div class="tags-part2398">
-                        <h4>Tags</h4>
-                        <ul>
-                            <li><a href="#">Kiswahili</a></li>
-                            <li><a href="#">Computer</a></li>
-                            <li><a href="#">Mathematics</a></li>
-                            <li><a href="#">English</a></li>
-                            <li><a href="#">A-Level</a></li>
-                            <li><a href="#">O-Level</a></li>
-                            <li><a href="#">Necta</a></li>
-                            <li><a href="#">University</a></li>
-                            <li><a href="#">Tanzania One</a></li>
-    
-                        </ul>
-    
-    
-                    </div>
-                </aside>
-            </div>
-        </div>
-        <br />
+                
+                
     </section>
+
 
 </main>
 

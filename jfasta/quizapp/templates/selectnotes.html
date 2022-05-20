@@ -20,16 +20,17 @@
 <section class="main-content920">
     <div class="container">
         <div class="row">
-            <div class="col-md-9">
-                <div class="ask-question-input-part032">
+            <div class="col-md-2"></div>
+            <div class="col-md-9" data-aos="fade-up" style="margin-bottom:100px;">
+                <div>
                     <h4>Your Notes</h4>
                     <hr>
                     <form method="POST" action="{% url 'selectnotes' %}">
                         {% csrf_token %}
-                        <div class="categori49">
-                            <span class="form-description43305">Choose The Level* </span>
+                        <div class="form-group" style="padding:10px; margin:10px;">
+                            <span>Choose The Level* </span>
                             <label>
-                                <input list="levels" name="levels" class="list-category53" required /></label>
+                                <input list="levels" name="levels" class="form-control" required /></label>
                             <datalist id="levels">
                                 <option value="Form 1">
                                 <option value="Form 2">
@@ -41,10 +42,10 @@
                         </div>
 
 
-                        <div class="categori49">
-                            <span class="form-description43305">Which Subject?* </span>
+                        <div class="form-group" style="padding:10px; margin:10px;">
+                            <span>Which Subject?* </span>
                             <label>
-                                <input list="subs" name="subs" class="list-category53" required/></label>
+                                <input list="subs" name="subs" class="form-control" required/></label>
                             <datalist id="subs">
                                 <option value="Kiswahili">
                                 <option value="English">
@@ -63,8 +64,8 @@
                         
 
 
-                        <div class="publish-button2389">
-                            <button type="submit" class="publis1291">Get Your Notes</button>
+                        <div class="form-group" style="padding:10px; margin:10px;">
+                            <button type="submit" class="btn btn-primary">Get Your Notes</button>
                         </div>
                     </form>
 
