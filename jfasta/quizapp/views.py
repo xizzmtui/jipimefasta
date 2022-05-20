@@ -19,7 +19,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from rest_framework import status
-from .models import NotesUser, User, Question, Question_Options, Quiz, Quiz_Question, Feedback, ContentSuggested, Post,  Reply, Notes
+from .models import NotesUser, ReplyReplies, User, Question, Question_Options, Quiz, Quiz_Question, Feedback, ContentSuggested, Post,  Reply, Notes
 from .serializers import UserSerializer, QuizSerializer, Quiz_QuestionSerializer, QuestionSerializer, Question_OptionsSerializer,FeedbackSerializer, ContentSuggestedSerializer, PostSerializer, ReplySerializer
 from quizapp import serializers
 import sqlite3
@@ -193,22 +193,24 @@ def register(request):
 
 
 def login_django(request):
-	if request.method == "POST":
-		form = AuthenticationForm(request, data=request.POST)
-		if form.is_valid():
-			username = form.cleaned_data.get('username')
-			password = form.cleaned_data.get('password')
-			user = authenticate(username=username, password=password)
-			if user is not None:
-				login(request, user)
-				messages.info(request, f"You are now logged in as {username}.")
-				return redirect("dashboard")
-			else:
-				messages.error(request,"Invalid username or password.")
-		else:
-			messages.error(request,"Invalid username or password.")
-	form = AuthenticationForm()
-	return render(request=request, template_name="login.html", context={"login_form":form})
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.info(request, f"You are now logged in as {username}.")
+                if request.POST.get('next') == None:
+                    return redirect("dashboard")
+                return redirect(request.POST.get('next'))
+            else:
+                messages.error(request,"Invalid username or password.")
+        else:
+            messages.error(request,"Invalid username or password.")
+    form = AuthenticationForm()
+    return render(request=request, template_name="login.html", context={"login_form":form})
     
 
 @login_required       
@@ -258,6 +260,39 @@ def viewpost(request, id):
             'category': category, 'img': img, 'page_obj': page_obj, 'comment_count': comment_count}
     print(wall)
     return render(request, 'viewpost.html', wall)
+
+
+
+
+
+@login_required
+def rep_rep(request, pid, rid):
+    if request.method == 'POST':
+        content = request.POST['reply']
+        usr = User.objects.filter(id=request.user.id)[0]
+        rid = Reply.objects.filter(id=rid)[0]
+        ReplyReplies.objects.create(content=content, usr=usr, rid=rid)
+        messages.success(request, 'Reply saved')
+        return redirect('rep_rep', pid=pid, rid=rid)
+    posts = Post.objects.filter(id=pid).values()
+    post = posts[0]
+    title = post['title']
+    img = post['img']
+    usr = post['usr_id']
+    content = post['content']
+    share = post['share']
+    date = post['date']
+    category = post['category']
+    post_id = post['id']
+
+    page_obj = Reply.objects.filter(pid=pid)
+    comment_count = len(page_obj)
+    reps_rep = ReplyReplies.objects.filter(rid=rid)
+
+    wall = {'id': post_id, 'title': title, 'content': content, 'usr': usr, 'share': share, 'date': date,
+            'category': category, 'img': img, 'page_obj': page_obj, 'reps_rep':reps_rep, 'comment_count': comment_count}
+    print(wall)
+    return (request, 'viewpost.html', wall)
 
 
 @login_required

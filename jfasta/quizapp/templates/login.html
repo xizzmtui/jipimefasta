@@ -11,6 +11,7 @@
 
           <div class="container col-md-6" data-aos="fade-up">
             <form method="POST" class="form-control" style="padding: 30px; margin:10px;">
+              <input type="hidden" name="next" value="{{ request.GET.next }}" />
               {% csrf_token %} {{ login_form|crispy }}
               <div class="text-center mb-5" style="padding: 10px;">
               <button class="btn btn-primary " type="submit">Login</button>
