@@ -42,6 +42,7 @@ urlpatterns = [
     path('selectquiz/', views.selectquiz, name='selectquiz'),
     path('h2h/', views.h2h, name='h2h'),
     path('survival/', views.survival, name='survival'),
+    path('history/', views.history, name='history'),
     path('normal/', views.normal, name='normal'),
     path('notes/<int:id>/', views.notes, name='notes'),
     path('favnotes/', views.favnotes, name='favnotes'),

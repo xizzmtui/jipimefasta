@@ -39,9 +39,9 @@
             <div class="entry-meta">
               <ul>
                 <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{% url 'userprofile' usr %}">{{usr}} </a></li>
-                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time
+                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time
                       datetime="2020-01-01">{{date}}</time></a></li>
-                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">{{comment_count}}
+                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#startcomment">{{comment_count}}
                     Comments</a></li>
               </ul>
             </div>
@@ -76,11 +76,11 @@
 
           <div class="blog-comments">
             
-            <h4 class="comments-count">{{comment_count}} Comments</h4>
+            <h4 class="comments-count" id="startcomment">{{comment_count}} Comments</h4>
             {% for replay in page_obj %}
             <div id="comment-1" class="comment">
               <div class="d-flex">
-                <div class="comment-img"><img src="assets/img/blog/comments-1.jpg" alt=""></div>
+                <div class="comment-img"><img src="{% static 'assets/img/blog/comments-1.jpg' %}" alt=""></div>
                 <div>
                   <h5><a href="{%url 'userprofile' replay.usr.id %}">{{replay.usr.username}}</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a>
                   </h5>
