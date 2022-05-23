@@ -202,8 +202,8 @@ def login_django(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}.")
-                if request.POST.get('next') == None:
-                    return redirect("dashboard")
+                # if request.POST.get('next') == None:
+                #     return redirect("dashboard")
                 return redirect(request.POST.get('next'))
             else:
                 messages.error(request,"Invalid username or password.")
@@ -467,6 +467,7 @@ def normal(request):
 @login_required
 def notes(request, id):
     notesy = Notes.objects.filter(id=id).values()[0]
+    
     return render(request, 'notes.html', notesy)
 
 @login_required
