@@ -2,84 +2,97 @@
 {% load static %}
 {% block content %}
 <main id="main">
-<section class="header-descriptin329">
+<section class="breadcrumbs">
     <div class="container">
-        <h3>Add Questions</h3>
-        <ol class="breadcrumb breadcrumb839">
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li class="active">Contribute Questions</li>
-        </ol>
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h3>Contribution Page</h3>
+            <ol class="breadcrumb breadcrumb839">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li class="active">Make Questions</li>
+            </ol>
+        </div>
+
     </div>
 </section>
-<div>
-<form method="post" action="{% url 'makequestion' %}">
-    {% csrf_token %}
-    <div class="question-title39">
-        <span class="form-description433">Level, Form: * </span><label>
-            <input list="level" name="level" class="list-category53" required /></label>
-        <datalist id="level">
-            <option value="1">
-            <option value="2">
-            <option value="3">
-            <option value="4">
-            <option value="5">
-            <option value="6">
-            
-        </datalist>
-    </div>
-
-    <div class="categori49">
-        <span class="form-description43305">Category* </span>
-        <label>
-            <input list="browsers" name="category" class="list-category53" required /></label>
-        <datalist id="browsers">
-            <option value="Kiswahili">
-            <option value="English">
-            <option value="Basic Mathematics">
-            <option value="History">
-            <option value="Geography">
-            <option value="Civics">
-            <option value="Physics">
-            <option value="Chemistry">
-            <option value="Biology">
-            <option value="B/Keeping">
-            <option value="Commerce">
-            <option value="Computer Studies">
-        </datalist>
-    </div>
-    
-    <div class="question-title39">
-        <span class="form-description43313">Question Description* </span>
-        <textarea class="question-details3112" name="content"
-            placeholder="Question's description ." required></textarea>
-    </div>
-
-    <div>
-        <p>Question Options</p>
-        <div>
-            <div><input type="text" name="opt1" placeholder="Option1" required></div>
-            <div><input type="text" name="opt2" placeholder="Option2" required></div>
-            <div><input type="text" name="opt3" placeholder="Option3" required></div>
-            <div><input type="text" name="opt4" placeholder="Option4" required></div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+    <form method="post" action="{% url 'makequestion' %}">
+        {% csrf_token %}
+        <div class="form-group" style="margin: 10px;">
+            <span>Level, Form: * </span>
+            <label><input list="level" name="level" class="form-control" required /></label>
+            <datalist id="level">
+                <option value="1">
+                <option value="2">
+                <option value="3">
+                <option value="4">
+                <option value="5">
+                <option value="6">
+                
+            </datalist>
         </div>
-    </div>
-    <div class="question-title39">
-        <span class="form-description43313">Answer* </span>
-        <input name="answer" placeholder="Question's description ." style = "width : 50vh; height : 10vh; " required > 
-    </div>
 
+        <div class="form-group" style="margin: 10px;">
+            <span>Category* </span>
+            <label><input list="browsers" name="category" class="form-control" required /></label>
+            <datalist id="browsers">
+                <option value="Kiswahili">
+                <option value="English">
+                <option value="Basic Mathematics">
+                <option value="History">
+                <option value="Geography">
+                <option value="Civics">
+                <option value="Physics">
+                <option value="Chemistry">
+                <option value="Biology">
+                <option value="B/Keeping">
+                <option value="Commerce">
+                <option value="Computer Studies">
+            </datalist>
+        </div>
+        <div class="row" style="padding: 10px; margin: 10px;">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <p>Question Description* </p>
+                    <textarea class="form-control" name="content"
+                        placeholder="Question's description ." required></textarea>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <p>Question Options</p>
+                <div class="form-group" >
+                    <input type="text" name="opt1" placeholder="Option1" class="form-control"   style="margin: 1px;" required>
+                    <input type="text" name="opt2" placeholder="Option2" class="form-control"   style="margin: 1px;" required>
+                    <input type="text" name="opt3" placeholder="Option3" class="form-control"   style="margin: 1px;" required>
+                    <input type="text" name="opt4" placeholder="Option4" class="form-control"   style="margin: 1px;" required>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <p>Answer* </p>
+                    <input name="answer" placeholder="Write an answer from options" class="form-control"
+                        style="width : 50vh; height : 10vh; " required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group" style="margin-bottom: 10px;">
+                    <span>Answer Description* </span>
+                    <textarea class="form-control" name="answer_description" placeholder="Answer's description ."  required></textarea>
+                </div>
 
-    <div class="question-title39">
-        <span class="form-description43313">Answer Description* </span>
-        <textarea class="question-details3112" name="answer_description" placeholder="Answer's description ." required></textarea>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Publish your Question</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <br>
     </div>
-    <div class="publish-button2389">
-        <button type="submit" class="publis1291">Publish your Post</button>
-    </div>
-</form>
-<br>
 </div>
-
 </main>
 
 

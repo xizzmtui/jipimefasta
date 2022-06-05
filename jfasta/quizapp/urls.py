@@ -33,6 +33,7 @@ urlpatterns = [
     path('forum2/', views.forum_2, name='forum2'),
     path('forum3/', views.forum_3, name='forum3'),
     path('forum4/', views.forum_4, name='forum4'),
+    path('forum5/<str:category>/', views.forum_5, name='forum5'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('login/', views.login_django, name='login'),
     path('register/', views.register, name='register'),

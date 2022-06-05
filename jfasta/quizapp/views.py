@@ -142,6 +142,14 @@ def forum_4(request):
     return render(request, 'forum.html', {'page_obj': page_obj})
 
 @login_required
+def forum_5(request, category):
+    post_list = Post.objects.filter(category=category)
+    paginator = Paginator(post_list, 10) # Show 3 posts per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'forum.html', {'page_obj': page_obj})
+
+@login_required
 def userposts(request, id):
     post_list = Post.objects.filter(usr=id).order_by('-date')
     paginator = Paginator(post_list, 10) # Show 3 posts per page.
