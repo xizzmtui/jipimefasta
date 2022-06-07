@@ -23,7 +23,7 @@
                     <div>
                         <h4>Your Post</h4>
                         <hr>
-                        <form method="post" action="{% url 'makepost' %}">
+                        <form method="post" action="{% url 'makepost' %}" enctype="multipart/form-data">
                             {%  csrf_token %}
                             <div class="form-group" style="margin:10px;padding:10px;">
                                 <span>Post-Title* </span>

@@ -50,7 +50,7 @@ class Post(models.Model):
     'New Post')
     content = models.CharField(max_length=9999)
     category = models.CharField(max_length=50, blank=True, null=True)
-    img = models.ImageField(blank=True, null=True)
+    img = models.ImageField(null=True, upload_to='images/')
     usr = models.ForeignKey(User, on_delete=models.DO_NOTHING)   # id of the sender
     share = models.IntegerField(null=True)
     date = models.DateTimeField(default=datetime.now())
@@ -77,7 +77,7 @@ class Feedback(models.Model):
     img = models.ImageField(blank=True, null=True)
 
     def __str__(self):
-        return self.str(usr.username)
+        return str(self.usr.username)
 
 
 class ContentSuggested(models.Model):

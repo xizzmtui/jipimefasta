@@ -59,7 +59,9 @@
                     {% for post in page_obj %}
                     <article class="entry">
                         <div class="entry-img">
-                            <img src="{{post.img}}" alt="" class="img-fluid">
+                            {% if post.img %}
+                                <a href="{% url 'viewpost' post.id %}"><img src="{{post.img.url}}" alt="" class="img-fluid"></a>
+                            {% endif %}
                         </div>
 
                         <h2 class="entry-title">

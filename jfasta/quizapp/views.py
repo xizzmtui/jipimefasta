@@ -233,7 +233,7 @@ def makepost(request):
         post_contents = request.POST
         category = post_contents['category']
         title = post_contents['title']
-        image = post_contents['ufile']
+        image = request.FILES['ufile']
         content = post_contents['content72']
         Post.objects.create(usr_id = request.user.id ,category=category, title=title, img=image, content=content)
         messages.success(request,'data has been successfuly submitted')
@@ -251,6 +251,7 @@ def viewpost(request, id):
         messages.success(request, 'Reply saved')
         return redirect('viewpost', id=id)
     posts = Post.objects.filter(id=id).values()
+
     post = posts[0]
     title = post['title']
     img = post['img']
@@ -263,6 +264,7 @@ def viewpost(request, id):
 
     page_obj = Reply.objects.filter(pid=id)
     comment_count = len(page_obj)
+    
 
     wall = {'id': post_id, 'title': title, 'content': content, 'usr': usr, 'share': share, 'date': date,
             'category': category, 'img': img, 'page_obj': page_obj, 'comment_count': comment_count}
