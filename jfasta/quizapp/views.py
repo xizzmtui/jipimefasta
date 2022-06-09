@@ -210,8 +210,6 @@ def login_django(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}.")
-                # if request.POST.get('next') == None:
-                #     return redirect("dashboard")
                 return redirect(request.POST.get('next'))
             else:
                 messages.error(request,"Invalid username or password.")
@@ -266,8 +264,7 @@ def viewpost(request, id):
     comment_count = len(page_obj)
     
 
-    wall = {'id': post_id, 'title': title, 'content': content, 'usr': usr, 'share': share, 'date': date,
-            'category': category, 'img': img, 'page_obj': page_obj, 'comment_count': comment_count}
+    wall = {'id': post_id, 'title': title, 'content': content, 'usr': usr, 'share': share, 'date': date,'category': category, 'img': img, 'page_obj': page_obj, 'comment_count': comment_count }
     print(wall)
     return render(request, 'viewpost.html', wall)
 
