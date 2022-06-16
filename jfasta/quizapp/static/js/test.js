@@ -1,1 +1,1 @@
-let questions = []
+let questions = [{'numb': 1, 'question': 'Cell division into four', 'answer': 'Mitosis', 'options': ['Mitosis', 'Metamophosis', 'Meiosis', 'Metaphase']}]
