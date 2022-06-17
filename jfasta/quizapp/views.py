@@ -268,8 +268,14 @@ def viewpost(request, id):
     print(wall)
     return render(request, 'viewpost.html', wall)
 
-def history(request):
-    return render(request,'history.html')
+def history(request, id):
+    if request.method == 'POST':
+        return redirect('history', id=id)
+
+    qwz = Quiz.objects.all(usr=id)
+    kwz = {'qwz' : qwz}
+
+    return render(request,'history.html', kwz)
 
 
 
