@@ -15,6 +15,26 @@
     
         </div>
     </section>
-    <h3>History</h3>
+
+    <!-- User quizzes history -->
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Your Quiz History</h3>
+                </div>
+                {% for quiz in qwz %}
+                <div class="card-body">
+                    <a href="{% url 'history_details' quiz.id %}">
+                        <p>Form {{quiz.level}} {{quiz.category}} {{quiz.date}}</p>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <br>
 </main>
 {% endblock %}

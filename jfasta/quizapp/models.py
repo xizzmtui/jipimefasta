@@ -34,7 +34,7 @@ class Quiz(models.Model):
     date = models.DateTimeField(default=datetime.now())
 
     def __str__(self):
-        return self.category, self.level
+        return str(self.category) + " " + str(self.level)
 
 
 class Quiz_Question(models.Model):

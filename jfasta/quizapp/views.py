@@ -272,10 +272,18 @@ def history(request, id):
     if request.method == 'POST':
         return redirect('history', id=id)
 
-    qwz = Quiz.objects.all(usr=id)
+    qwz = Quiz.objects.filter(usr=id)
     kwz = {'qwz' : qwz}
 
     return render(request,'history.html', kwz)
+
+
+@login_required
+def history_details (request, id):
+    qwz = Quiz.objects.filter(id=id)
+    kwz = {'qwz': qwz}
+    return render (request, 'history_details.html', kwz)
+
 
 
 

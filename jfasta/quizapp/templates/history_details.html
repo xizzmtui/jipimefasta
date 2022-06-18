@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<main id="main">
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h3>Quiz App</h3>
+                <ol class="breadcrumb breadcrumb839">
+                    <li><a href="{% url 'history' user.id %}">Quiz History</a></li>
+                    <li class="active">Quiz Details</li>
+                </ol>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+{% endblock %}

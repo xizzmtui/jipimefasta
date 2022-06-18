@@ -43,7 +43,7 @@ urlpatterns = [
     path('selectquiz/', views.selectquiz, name='selectquiz'),
     path('h2h/', views.h2h, name='h2h'),
     path('survival/', views.survival, name='survival'),
-    path('history/', views.history, name='history'),
+    path('history/<int:id>/', views.history, name='history'),
     path('normal/', views.normal, name='normal'),
     path('notes/<int:id>/', views.notes, name='notes'),
     path('favnotes/', views.favnotes, name='favnotes'),
@@ -58,5 +58,6 @@ urlpatterns = [
     path('userprofile/<int:id>', views.userprofile, name='userprofile'),
     path('makequestion/', views.make_questions, name='makequestion'),
     path('userposts/<int:id>', views.userposts, name='userposts'),
+    path('history_details/<int:id>/', views.history_details, name='history_details'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
