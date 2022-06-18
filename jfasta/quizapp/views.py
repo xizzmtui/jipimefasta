@@ -362,8 +362,22 @@ def selectquiz(request):
 
 @login_required
 def h2h(request):
+
+        if request.method == "POST":
+            usr = request.user.id
+            score = request.POST['score']
+            category = request.POST['category']
+            level = request.POST['level']
+            qtype = request.POST['qtype']
+            
+            
+            Quiz.objects.create(usr=usr, score=score, category=category, level=level, qtype=qtype )
+            return redirect("history", id=request.user.id)
+
+
         category = request.session['subject']
         level = request.session['level']
+        request.session['qtype'] = 'h2h'
         if level == 'Form 1' :
             levels = 1
         elif level == 'Form 2':
