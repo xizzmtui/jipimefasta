@@ -68,10 +68,21 @@
         <div class="score_text">
             <!-- Here I've inserted Score Result from JavaScript -->
         </div>
-        <div class="buttons">
-            <button class="restart">Replay Quiz</button>
-            <a href="{% url 'history' user.id %}"><button class="quit">Quit Quiz</button></a>
-        </div>
+        
+        <!-- Submitting to history -->
+        <form action="{% url 'history' user.id %}" method="post">
+            {% csrf_token %}
+            <input type="text" class="scoreres" name="score" hidden>
+            <input type="text" name="level" value="{{session.level}}" hidden>
+            <input type="datetime" name="date" value="{{session.datetime}}" hidden>
+            <input type="text" name="category" value="{{session.category}}" hidden>
+            <input type="text" name="qtype" value="Normal" hidden>
+            <div class="buttons">
+                <button type="submit" class="restart">Replay Quiz</button>
+                <button type="submit" class="quit">Quit Quiz</button>
+            </div>
+        </form>
+        <!-- end of submitting to history -->
     </div>
 
     <script src="{% static 'js/test.js' %}"></script>
