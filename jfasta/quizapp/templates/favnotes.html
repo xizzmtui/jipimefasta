@@ -15,14 +15,21 @@
     
         </div>
     </section>
-        {% for note in notesy %}
-        <div class="card" >
-            <ul class="card-body">
-                <li class=><a href="{% url 'notes' note.id %}">{{note.category}}</a></li>
-                <li>Form {{note.level}}</li>
-                <li>Date Marked: {{note.date}}</li>
-            </ul>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+            {% for note in notesy %}
+            <div class="card" style="margin:10px; padding:10px;" data-aos="fade-up">
+                <div class="card-body" >
+                    <h4><a href="{% url 'notes' note.id %}">{{note.category}}</a></h4>
+                    <h4>Form {{note.level}}</h4>
+                    <h4>Fav Since: {{note.date}}</h4>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+    </div>
+        
 </main>
 {% endblock%}
