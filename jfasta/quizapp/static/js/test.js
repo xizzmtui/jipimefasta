@@ -1,1 +1,1 @@
-let questions = [{'numb': 1, 'question': 'Cell division into four', 'answer': 'Mitosis', 'options': ['Mitosis', 'Metamophosis', 'Meiosis', 'Metaphase']}]
+let questions = [{'numb': 1, 'question': 'Which one among the following is a book you are supposed to read on literature', 'answer': 'Mabala, the Farmer', 'options': ['Mabala, the Farmer', 'John, the giant slayer', 'Asha, the Bus driver', 'Kalulu, the Elephant']}]

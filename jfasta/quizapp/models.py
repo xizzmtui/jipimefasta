@@ -27,11 +27,14 @@ class Question_Options(models.Model):
 
 
 class Quiz(models.Model):
+
+    OPTIONS_FIELDS =(('h2h', 'H2H'),('normal', 'Normal'), ('survival','Survival'))
     usr = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     score = models.IntegerField()
     category = models.TextField()
     level = models.IntegerField()
     date = models.DateTimeField(default=datetime.now())
+    qtype = models.TextField(choices=OPTIONS_FIELDS, null=True)
 
     def __str__(self):
         return str(self.category) + " " + str(self.level)

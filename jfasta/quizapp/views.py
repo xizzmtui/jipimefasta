@@ -280,8 +280,14 @@ def history(request, id):
 
 @login_required
 def history_details (request, id):
-    qwz = Quiz.objects.filter(id=id)
-    kwz = {'qwz': qwz}
+    qwz = Quiz.objects.filter(id=id)[0]
+
+    score = qwz.score
+    category = qwz.category
+    level = qwz.level 
+    date = qwz.date
+    qid = qwz.id
+    kwz = { 'qid':qid, 'score': score, 'category':category, 'level':level, 'date':date}
     return render (request, 'history_details.html', kwz)
 
 
