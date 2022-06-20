@@ -17,24 +17,40 @@
 </section>
 
 <!-- start of profile information -->
-<div class="row" data-aos="fade-up">
-    <h4>Welcome, {{user.username}}</h4><hr>
-    <div class="col-md-2" style=" border-right: 1px black solid; color:black; padding: 10px; margin: 10px;">
-        
-        
-        <h4>Your Information</h4> <hr>
-        <p>Username :  {{user.username}}</p> <hr>
-        <p>Firstname :  {{user.first_name}}</p> <hr>
-        <p>Lastname :  {{user.last_name}} </p> <hr>
-        <p> School : {{user.school}} </p> <hr>
-        <p>Combination : {{user.combination}}</p> <hr>
-        <p>Level : Form {{user.level}}</p>
-        <button class="btn btn-primary"> 
-            <a href="{% url 'profile_update' %}" style="color:aliceblue;"> Edit Your Profile</p>
-        </button>
-        
-    </div>
+        <div>
+            <div >
+                <h4>Welcome, {{user.username}}</h4>
+            </div>
+            <div >
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h4>Your Information</h4>
+                        <p>Username : {{user.username}}</p>
+                        <p>Firstname : {{user.first_name}}</p>
+                        <p>Lastname : {{user.last_name}} </p>
+                        <p> School : {{user.school}} </p>
+                        <p>Combination : {{user.combination}}</p>
+                        <p>Level : Form {{user.level}}</p>
+                        <button class="btn btn-primary">
+                            <a href="{% url 'profile_update' %}" style="color:aliceblue;"> Edit Your Profile</p>
+                        </button>
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- <div class="card">
+                            <div class="card-header">
+                                Quiz History
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Check and review howw you did in this quizzes</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+        </div>
+      </div>
 <!-- end of profile in formation -->
-</div>
 </main>
 {% endblock content %}

@@ -270,7 +270,15 @@ def viewpost(request, id):
 
 def history(request, id):
     if request.method == 'POST':
-        return redirect('history', id=id)
+        usr = User.objects.filter(id=request.user.id)[0]
+        score = request.POST['score']
+        category = request.POST['category']
+        level = request.POST['level']
+        qtype = request.POST['qtype']
+            
+            
+        Quiz.objects.create(usr=usr, score=score, category=category, level=level, qtype=qtype )
+        return redirect("history", id=request.user.id)
 
     qwz = Quiz.objects.filter(usr=id)
     kwz = {'qwz' : qwz}
@@ -363,18 +371,6 @@ def selectquiz(request):
 @login_required
 def h2h(request):
 
-        if request.method == "POST":
-            usr = request.user.id
-            score = request.POST['score']
-            category = request.POST['category']
-            level = request.POST['level']
-            qtype = request.POST['qtype']
-            
-            
-            Quiz.objects.create(usr=usr, score=score, category=category, level=level, qtype=qtype )
-            return redirect("history", id=request.user.id)
-
-
         category = request.session['subject']
         level = request.session['level']
         
@@ -418,16 +414,6 @@ def h2h(request):
 
 @login_required
 def survival(request):
-        if request.method == "POST":
-            usr = request.user.id
-            score = request.POST['score']
-            category = request.POST['category']
-            level = request.POST['level']
-            qtype = request.POST['qtype']
-            
-            
-            Quiz.objects.create(usr=usr, score=score, category=category, level=level, qtype=qtype )
-            return redirect("history", id=request.user.id)
 
         category = request.session['subject']
         level = request.session['level']
@@ -471,16 +457,6 @@ def survival(request):
 
 @login_required
 def normal(request):
-        if request.method == "POST":
-            usr = request.user.id
-            score = request.POST['score']
-            category = request.POST['category']
-            level = request.POST['level']
-            qtype = request.POST['qtype']
-            
-            
-            Quiz.objects.create(usr=usr, score=score, category=category, level=level, qtype=qtype )
-            return redirect("history", id=request.user.id)
             
         category = request.session['subject']
         level = request.session['level']

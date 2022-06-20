@@ -72,10 +72,10 @@
         <!-- Submitting to history -->
         <form action="{% url 'history' user.id %}" method="post">
             {% csrf_token %}
-            <input type="text" class="scoreres" name="score" hidden>
-            <input type="text"  name="level" value="{{session.level}}" hidden>
-            <input type="datetime" name="date" value="{{session.datetime}}" hidden>
-            <input type="text" name="category" value="{{session.category}}" hidden>
+            <textarea type="text" class="scoreres" name="score" hidden></textarea>
+            <input type="text"  name="level" value="{{request.session.level}}" hidden>
+            <input type="datetime" name="date" value="{{request.session.datetime}}" hidden>
+            <input type="text" name="category" value="{{request.session.category}}" hidden>
             <input type="text" name="qtype" value="h2h" hidden>
             <div class="buttons">
                 <button type="submit" class="restart">Replay Quiz</button>
