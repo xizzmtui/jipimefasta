@@ -1,6 +1,7 @@
 
 from email.errors import NonPrintableDefect
 from http.client import HTTPResponse
+import json
 from multiprocessing import context
 from pydoc import describe
 from django import db
@@ -36,6 +37,7 @@ from django.template.loader import render_to_string
 from django.db.models.query_utils import Q
 from django.core.paginator import Paginator
 from django.views.generic import ListView
+from datetime import datetime
 
 
 
@@ -349,7 +351,8 @@ def selectquiz(request):
         subject = form_results['subs']
         quiz_choice = form_results ['quiz']
         request.session['level']=level
-        request.session['subject']=subject
+        request.session['category']=subject
+        
 
         if quiz_choice == 'Challenge Another Student':
             quiz_option = 'h2h'
@@ -361,7 +364,7 @@ def selectquiz(request):
             quiz_option = 'index'
 
 
-        return redirect(quiz_option,)
+        return redirect(quiz_option)
 
 
     return render(request, 'selectquiz.html')
