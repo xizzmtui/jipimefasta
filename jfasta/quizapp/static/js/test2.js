@@ -15,6 +15,7 @@ start_btn.onclick = ()=>{
 }
 // if exitQuiz button clicked
 exit_btn.onclick = ()=>{
+    
     info_box.classList.remove("activeInfo"); //hide info box
 }
 // if continueQuiz button clicked
@@ -23,7 +24,7 @@ continue_btn.onclick = ()=>{
     quiz_box.classList.add("activeQuiz"); //show quiz box
     showQuetions(0); //calling showQestions function
     queCounter(1); //passing 1 parameter to queCounter
-    startTimer(15); //calling startTimer function
+    startTimer(30); //calling startTimer function
     startTimerLine(0); //calling startTimerLine function
 }
 let timeValue =  15;
@@ -55,7 +56,9 @@ restart_quiz.onclick = ()=>{
 }
 // if quitQuiz button clicked
 quit_quiz.onclick = ()=>{
-    window.location.reload(); //reload the current window
+    window.location.reload();
+    console.log(userScore);
+    //reload the current window
 }
 const next_btn = document.querySelector("footer .next_btn");
 const bottom_ques_counter = document.querySelector("footer .total_que");
@@ -135,23 +138,25 @@ function showResult(){
     quiz_box.classList.remove("activeQuiz"); //hide quiz box
     result_box.classList.add("activeResult"); //show result box
     const scoreText = result_box.querySelector(".score_text");
-    const score =  document.getElementById('scoreres');
+    const score =  document.getElementById('score');
     if (userScore > 3){ // if user scored more than 3
         //creating a new span tag and passing the user score number and total question number
         let scoreTag = '<span>and congrats! , You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
         scoreText.innerHTML = scoreTag;  //adding new span tag inside score_Text
-        score.innerHTML('<input type="hidden" name="score" value="'+ userScore +'">');  //adding new span tag inside score_Text
 
-        var node = document.getElementById('node-id');
-        node.innerHTML('<p>some dynamic html</p>');
+        score.setAttribute('value', userScore);  //adding score to value 
+
     }
     else if(userScore > 1){ // if user scored more than 1
         let scoreTag = '<span>and nice , You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
         scoreText.innerHTML = scoreTag;
+        
+        score.setAttribute('value', userScore);
     }
     else{ // if user scored less than 1
         let scoreTag = '<span>and sorry , You got only <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
         scoreText.innerHTML = scoreTag;
+        score.setAttribute('value', userScore);
     }
 }
 function startTimer(time){

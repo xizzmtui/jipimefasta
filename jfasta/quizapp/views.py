@@ -277,9 +277,23 @@ def history(request, id):
         category = request.POST['category']
         level = request.POST['level']
         qtype = request.POST['qtype']
+
+        if level == 'Form 1' :
+            levels = 1
+        elif level == 'Form 2':
+            levels = 2
+        elif level == 'Form 3':
+            levels = 3
+        elif level == 'Form 4':
+            levels = 4
+        elif level == 'Form 5':
+            levels = 5
+        else:
+            levels = 6
+
             
             
-        Quiz.objects.create(usr=usr, score=score, category=category, level=level, qtype=qtype )
+        Quiz.objects.create(usr=usr, score=score, category=category, level=levels, qtype=qtype )
         return redirect("history", id=request.user.id)
 
     qwz = Quiz.objects.filter(usr=id)

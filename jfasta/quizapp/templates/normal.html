@@ -29,7 +29,7 @@
             <div class="info">5. You'll get points on the basis of your correct answers.</div>
         </div>
         <div class="buttons">
-            <button class="quit">Exit Quiz</button>
+            <a href="{% url 'selectquiz' %}"><button class="quit">Exit Quiz</button></a>
             <button class="restart">Continue</button>
         </div>
     </div>
@@ -72,7 +72,7 @@
         <!-- Submitting to history -->
         <form action="{% url 'history' user.id %}" method="post">
             {% csrf_token %}
-            <input type="hidden" class="scoreres" name="score">
+            <input type="hidden" id="score" name="score" value="1">
             <input type="hidden" name="level" value="{{session.level}}">
             <input type="hidden" name="category" value="{{session.category}}">
             <input type="hidden" name="qtype" value="Normal">

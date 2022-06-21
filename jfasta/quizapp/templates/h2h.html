@@ -29,7 +29,7 @@
             <div class="info">5. You'll get points on the basis of your correct answers.</div>
         </div>
         <div class="buttons">
-            <button class="quit">Exit Quiz</button>
+            <a href="{% url 'selectquiz' %}"><button class="quit">Exit Quiz</button></a>
             <button class="restart">Continue</button>
         </div>
     </div>
@@ -72,9 +72,7 @@
         <!-- Submitting to history -->
         <form action="{% url 'history' user.id %}" method="post">
             {% csrf_token %}
-            <div class="scoreres">
-                <!-- Score results here -->
-            </div>
+            <input type="hidden" name="score" id="score" value=1>
             <input type="hidden"  name="level" value="{{request.session.level}}" >
             <input type="hidden" name="category" value="{{request.session.category}}" >
             <input type="hidden" name="qtype" value="h2h" >
@@ -85,6 +83,10 @@
         </form>
         <!-- end of submitting to history -->
     </div>
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
     <script src="{% static 'js/test.js' %}"></script>
     <script src="{% static 'js/test2.js' %}"></script>
