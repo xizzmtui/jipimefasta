@@ -388,7 +388,7 @@ def selectquiz(request):
 @login_required
 def h2h(request):
 
-        category = request.session['subject']
+        category = request.session['category']
         level = request.session['level']
         
         if level == 'Form 1' :
@@ -527,6 +527,14 @@ def notes(request, id):
 
 @login_required
 def favnotes(request):
+
+    if request.method == "POST":
+        notez_id = request.session['nid']
+        notes_id = Notes.objects.filter(id=notez_id)[0]
+        user_id = request.user
+        
+        NotesUser.objects.create(yuza=user_id, fav=notes_id)
+        return redirect("notes", id=notez_id)
     favnot = NotesUser.objects.filter(yuza=request.user).values()
     notesy = []
 
@@ -558,6 +566,7 @@ def selectnotes(request):
             levels = request.user.id
 
         notez = Notes.objects.filter(category=title, level=levels).values()[0]
+        request.session['nid']=notez['id']
         messages.success(request, 'notes available')
         return render(request,'notes.html', notez)
     return render(request, 'selectnotes.html')

@@ -9,7 +9,7 @@
             <h3>Notes For You</h3>
             <ol class="breadcrumb breadcrumb839">
                 <li><a href="{% url 'index' %}">Home</a></li>
-                <li class="active">{{category}} {{level}} Notes</li>
+                <li class="active">{{category}}, Form {{level}} Notes</li>
             </ol>
         </div>
 
@@ -23,6 +23,11 @@
                 <div class="card-header" >
                     <h4>Subject:  {{category}}</h4>
                     <h4>Form {{level}}</h4>
+                    <form method="POST" action="{% url 'favnotes' %}">
+                        {% csrf_token %}
+                        <button type="submit">Make Favorite</button>
+                    </form>
+                    
                 </div>
                 <div class="card-body">
                     <p style="padding: 20px;">{{content}}</p>
