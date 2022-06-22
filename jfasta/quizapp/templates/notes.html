@@ -21,13 +21,14 @@
             <div class="col-md-9">
             <div class="card" data-aos="fade-up">
                 <div class="card-header" >
-                    <h4>Subject:  {{category}}</h4>
-                    <h4>Form {{level}}</h4>
-                    <form method="POST" action="{% url 'favnotes' %}">
-                        {% csrf_token %}
-                        <button type="submit">Make Favorite</button>
-                    </form>
-                    
+                    <div class="d-flex justify-content-between align-items-center"> 
+                        <h4>Subject:  {{category}}</h4>
+                        <h4>Form {{level}}</h4>
+                        <form method="POST" action="{% url 'favnotes' %}" class="breadcrumb breadcrumb839">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Make Favorite</button>
+                        </form>
+                    </div>
                 </div>
                 <div class="card-body">
                     <p style="padding: 20px;">{{content}}</p>
