@@ -351,7 +351,7 @@ def rep_rep(request, pid, rid):
 def feedback(request):
     if request.method == 'POST':
         content = request.POST['content']
-        img = request.POST['ufile']
+        img = request.FILE['ufile']
         Feedback.objects.create(usr=request.user, content=content, img=img)
         messages.success(request, 'Thank you for contacting us')
         return redirect('index')
