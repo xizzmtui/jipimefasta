@@ -632,7 +632,12 @@ def editpost(request, id):
 
 @login_required
 def deletepost(request, id):
+    # controlling user authentication
+    if request.user.id != Post.objects.filter(id=id).values()[0]['usr_id']:
+        return redirect('forum')
 
+    post_todelete = Post.objects.filter(id=id)
+    post_todelete.delete()
     return redirect("forum")
 
 @login_required
