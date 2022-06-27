@@ -57,6 +57,7 @@ class Post(models.Model):
     usr = models.ForeignKey(User, on_delete=models.DO_NOTHING)   # id of the sender
     share = models.IntegerField(null=True)
     date = models.DateTimeField(default=datetime.now())
+    reply_count = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title

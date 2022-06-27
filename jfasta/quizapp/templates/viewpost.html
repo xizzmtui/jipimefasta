@@ -25,12 +25,12 @@
       <div class="row">
 
         <div class="col-lg-8 entries">
-
+          {% for post in poz %}
           <article class="entry entry-single">
 
             <div class="entry-img">
               {% if post.img %}
-              <img src="{{img.url}}" alt="" class="img-fluid">
+              <img src="{{post.img.url}}" alt="" class="img-fluid">
               {% endif %}
             </div>
 
@@ -40,7 +40,7 @@
 
             <div class="entry-meta">
               <ul>
-                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{% url 'userprofile' usr %}">{{usr}} </a></li>
+                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{% url 'userprofile' usr %}">{{post.usr.username}} </a></li>
                 <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time
                       datetime="2020-01-01">{{date}}</time></a></li>
                 <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#startcomment">{{comment_count}}
@@ -63,7 +63,7 @@
             </div>
 
           </article><!-- End blog entry -->
-
+          {% endfor %}
           <!-- start of comments -->
           <div class="blog-comments">
             

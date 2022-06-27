@@ -73,8 +73,9 @@
                                 <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{% url 'userprofile' post.usr.id %}">{{post.usr.username}}</a></li>
                                 <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
                                         href="{% url 'viewpost' post.id %}"><time datetime="2020-01-01">{{post.date}}</time></a></li>
-                                <!-- <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="{% url 'viewpost' post.id %}">12 Comments</a></li> -->
+                                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="{% url 'viewpost' post.id %}">{{post.reply_count}} Comments</a></li>
                             </ul>
+
                         </div>
 
                         <div class="entry-content">
