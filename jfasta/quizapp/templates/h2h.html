@@ -70,7 +70,7 @@
         </div>
 
         <!-- Submitting to history -->
-        <form action="{% url 'history' user.id %}" method="post">
+        <form action="{% url 'history' %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="score" id="score" value=1>
             <input type="hidden"  name="level" value="{{request.session.level}}" >
