@@ -329,7 +329,7 @@ def history(request):
             
             
         Quiz.objects.create(usr=usr, score=score, category=category, level=levels, qtype=qtype )
-        return redirect("history", id=request.user.id)
+        return redirect("history")
 
     qwz = Quiz.objects.filter(usr=request.user.id)
     kwz = {'qwz' : qwz}
@@ -467,7 +467,7 @@ def h2h(request):
 @login_required
 def survival(request):
 
-        category = request.session['subject']
+        category = request.session['category']
         level = request.session['level']
         if level == 'Form 1' :
             levels = 1
@@ -510,7 +510,7 @@ def survival(request):
 @login_required
 def normal(request):
             
-        category = request.session['subject']
+        category = request.session['category']
         level = request.session['level']
         if level == 'Form 1' :
             levels = 1
