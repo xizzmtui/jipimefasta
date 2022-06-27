@@ -606,6 +606,29 @@ def selectnotes(request):
         return render(request,'notes.html', notez)
     return render(request, 'selectnotes.html')
 
+
+@login_required
+def editpost(request, id):
+    if request.method == 'POST':
+        post_contents = request.POST
+        category = post_contents['category']
+        title = post_contents['title']
+        image = request.FILES['ufile']
+        content = post_contents['content72']
+        poska = Post.objects.filter(id=id)
+        poska.update(id=id,usr_id = request.user.id ,category=category, title=title, img=image, content=content)
+        messages.success(request,'edited successfully')
+        return redirect('forum')
+
+
+    poust = Post.objects.filter(id=id)
+    pust = {'poust':poust}
+    return render(request, 'editpost.html', pust)
+
+@login_required
+def deletepost(request, id):
+    return redirect("forum")
+
 @login_required
 def contribute(request):
     return render(request, 'contribute')
