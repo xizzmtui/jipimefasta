@@ -305,9 +305,9 @@ def viewpost(request, id):
     print(wall)
     return render(request, 'viewpost.html', wall)
 
-def history(request, id):
+def history(request):
     if request.method == 'POST':
-        usr = User.objects.filter(id=request.user.id)[0]
+        usr = request.user
         score = request.POST['score']
         category = request.POST['category']
         level = request.POST['level']
@@ -331,7 +331,7 @@ def history(request, id):
         Quiz.objects.create(usr=usr, score=score, category=category, level=levels, qtype=qtype )
         return redirect("history", id=request.user.id)
 
-    qwz = Quiz.objects.filter(usr=id)
+    qwz = Quiz.objects.filter(usr=request.user.id)
     kwz = {'qwz' : qwz}
 
     return render(request,'history.html', kwz)
@@ -562,6 +562,7 @@ def notes(request, id):
 
 @login_required
 def favnotes(request):
+    # controlling user authentication
 
     if request.method == "POST":
         notez_id = request.session['nid']
@@ -609,6 +610,10 @@ def selectnotes(request):
 
 @login_required
 def editpost(request, id):
+    # controlling user authentication
+    if request.user.id != Post.objects.filter(id=id).values()[0]['usr_id']:
+        return redirect('forum')
+
     if request.method == 'POST':
         post_contents = request.POST
         category = post_contents['category']
@@ -627,6 +632,7 @@ def editpost(request, id):
 
 @login_required
 def deletepost(request, id):
+
     return redirect("forum")
 
 @login_required

@@ -29,7 +29,7 @@
                         <ul>
                             <li><a href="{% url 'selectquiz' %}">Select Quiz</a></li>
                             {% if user.is_authenticated %}
-                            <li><a href="{% url 'history' user.id %}">History</a></li>
+                            <li><a href="{% url 'history' %}">History</a></li>
                             {% endif %}
                         </ul>
                     </li>
