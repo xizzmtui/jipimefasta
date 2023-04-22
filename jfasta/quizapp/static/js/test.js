@@ -1,1 +1,1 @@
-let questions = [{'numb': 1, 'question': 'Ipi kati ya zifuatazo ni aina mojawapo ya sentensi?', 'answer': 'Ambatano', 'options': ['Ambatano', 'Nomino', 'Fupi', 'Ndefu']}, {'numb': 2, 'question': 'Nini maana ya nomino?', 'answer': 'Mtenda', 'options': ['Mtenda', 'Kitendo', 'Sifa', 'Tabia']}, {'numb': 3, 'question': 'Maneno yapi kati ya yafuatayo yametokana na lugha za kibantu? ', 'answer': 'Kitivo na Ngeli', 'options': ['Kitindamimba na bendera', 'Hela na Mtutu', 'Godoro na Sharubati', 'Kitivo na Ngeli']}]
+let questions = []

@@ -642,7 +642,7 @@ def deletepost(request, id):
 
 @login_required
 def contribute(request):
-    return render(request, 'contribute')
+    return render(request, 'contribute.html')
 
 def aboutus(request):
     return render(request, 'aboutus.html')
